@@ -87,7 +87,7 @@
             </li>
 
             <li class="navbar-item">
-              <a href="#" class="navbar-link hover:underline" data-nav-link
+              <a href="membership.html" class="navbar-link hover:underline" data-nav-link
                 >Membership</a
               >
             </li>
@@ -163,6 +163,9 @@
                 method="POST"
                 class="newsletter-form"
               >
+                <!-- Hidden input to identify this as newsletter -->
+                <input type="hidden" name="form_type" value="newsletter" />
+
                 <input
                   type="email"
                   name="email"
@@ -588,7 +591,9 @@
               >
                 No matching articles found.
               </p>
-              <li>
+
+              <!-- ARTICLE 1 -->
+              <li class="blog-item">
                 <div class="blog-card">
                   <figure
                     class="card-banner img-holder"
@@ -629,7 +634,8 @@
                 </div>
               </li>
 
-              <li>
+              <!-- ARTICLE 2 -->
+              <li class="blog-item">
                 <div class="blog-card">
                   <figure
                     class="card-banner img-holder"
@@ -647,19 +653,14 @@
 
                   <div class="card-content">
                     <ul class="card-meta-list">
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
-
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
+                      <li><a href="#" class="card-tag">loading</a></li>
+                      <li><a href="#" class="card-tag">loading</a></li>
                     </ul>
 
                     <h3 class="h4">
-                      <a href="#" class="card-title hover:underline">
-                        Coming soon...
-                      </a>
+                      <a href="#" class="card-title hover:underline"
+                        >Coming soon...</a
+                      >
                     </h3>
 
                     <p class="card-text">Coming soon...</p>
@@ -667,7 +668,8 @@
                 </div>
               </li>
 
-              <li>
+              <!-- ARTICLE 3 -->
+              <li class="blog-item">
                 <div class="blog-card">
                   <figure
                     class="card-banner img-holder"
@@ -685,19 +687,14 @@
 
                   <div class="card-content">
                     <ul class="card-meta-list">
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
-
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
+                      <li><a href="#" class="card-tag">loading</a></li>
+                      <li><a href="#" class="card-tag">loading</a></li>
                     </ul>
 
                     <h3 class="h4">
-                      <a href="#" class="card-title hover:underline">
-                        Coming soon...
-                      </a>
+                      <a href="#" class="card-title hover:underline"
+                        >Coming soon...</a
+                      >
                     </h3>
 
                     <p class="card-text">Coming soon...</p>
@@ -705,7 +702,8 @@
                 </div>
               </li>
 
-              <li>
+              <!-- ARTICLE 4 -->
+              <li class="blog-item hidden">
                 <div class="blog-card">
                   <figure
                     class="card-banner img-holder"
@@ -723,19 +721,14 @@
 
                   <div class="card-content">
                     <ul class="card-meta-list">
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
-
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
+                      <li><a href="#" class="card-tag">loading</a></li>
+                      <li><a href="#" class="card-tag">loading</a></li>
                     </ul>
 
                     <h3 class="h4">
-                      <a href="#" class="card-title hover:underline">
-                        Coming soon...
-                      </a>
+                      <a href="#" class="card-title hover:underline"
+                        >Coming soon...</a
+                      >
                     </h3>
 
                     <p class="card-text">Coming soon...</p>
@@ -743,7 +736,8 @@
                 </div>
               </li>
 
-              <li>
+              <!-- ARTICLE 5 -->
+              <li class="blog-item hidden">
                 <div class="blog-card">
                   <figure
                     class="card-banner img-holder"
@@ -761,19 +755,14 @@
 
                   <div class="card-content">
                     <ul class="card-meta-list">
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
-
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
+                      <li><a href="#" class="card-tag">loading</a></li>
+                      <li><a href="#" class="card-tag">loading</a></li>
                     </ul>
 
                     <h3 class="h4">
-                      <a href="#" class="card-title hover:underline">
-                        Coming soon...
-                      </a>
+                      <a href="#" class="card-title hover:underline"
+                        >Coming soon...</a
+                      >
                     </h3>
 
                     <p class="card-text">Coming soon...</p>
@@ -781,7 +770,8 @@
                 </div>
               </li>
 
-              <li>
+              <!-- ARTICLE 6 -->
+              <li class="blog-item hidden">
                 <div class="blog-card">
                   <figure
                     class="card-banner img-holder"
@@ -799,19 +789,113 @@
 
                   <div class="card-content">
                     <ul class="card-meta-list">
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
-
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
+                      <li><a href="#" class="card-tag">loading</a></li>
+                      <li><a href="#" class="card-tag">loading</a></li>
                     </ul>
 
                     <h3 class="h4">
-                      <a href="#" class="card-title hover:underline">
-                        Coming soon...
-                      </a>
+                      <a href="#" class="card-title hover:underline"
+                        >Coming soon...</a
+                      >
+                    </h3>
+
+                    <p class="card-text">Coming soon...</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="blog-item hidden">
+                <div class="blog-card">
+                  <figure
+                    class="card-banner img-holder"
+                    style="--width: 550; --height: 660"
+                  >
+                    <img
+                      src="assets/images/loading.jpg"
+                      width="550"
+                      height="660"
+                      loading="lazy"
+                      alt="Creating is a privilege but it’s also a gift"
+                      class="img-cover"
+                    />
+                  </figure>
+
+                  <div class="card-content">
+                    <ul class="card-meta-list">
+                      <li><a href="#" class="card-tag">loading</a></li>
+                      <li><a href="#" class="card-tag">loading</a></li>
+                    </ul>
+
+                    <h3 class="h4">
+                      <a href="#" class="card-title hover:underline"
+                        >Coming soon...</a
+                      >
+                    </h3>
+
+                    <p class="card-text">Coming soon...</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="blog-item hidden">
+                <div class="blog-card">
+                  <figure
+                    class="card-banner img-holder"
+                    style="--width: 550; --height: 660"
+                  >
+                    <img
+                      src="assets/images/loading.jpg"
+                      width="550"
+                      height="660"
+                      loading="lazy"
+                      alt="Creating is a privilege but it’s also a gift"
+                      class="img-cover"
+                    />
+                  </figure>
+
+                  <div class="card-content">
+                    <ul class="card-meta-list">
+                      <li><a href="#" class="card-tag">loading</a></li>
+                      <li><a href="#" class="card-tag">loading</a></li>
+                    </ul>
+
+                    <h3 class="h4">
+                      <a href="#" class="card-title hover:underline"
+                        >Coming soon...</a
+                      >
+                    </h3>
+
+                    <p class="card-text">Coming soon...</p>
+                  </div>
+                </div>
+              </li>
+
+              <li class="blog-item hidden">
+                <div class="blog-card">
+                  <figure
+                    class="card-banner img-holder"
+                    style="--width: 550; --height: 660"
+                  >
+                    <img
+                      src="assets/images/loading.jpg"
+                      width="550"
+                      height="660"
+                      loading="lazy"
+                      alt="Creating is a privilege but it’s also a gift"
+                      class="img-cover"
+                    />
+                  </figure>
+
+                  <div class="card-content">
+                    <ul class="card-meta-list">
+                      <li><a href="#" class="card-tag">loading</a></li>
+                      <li><a href="#" class="card-tag">loading</a></li>
+                    </ul>
+
+                    <h3 class="h4">
+                      <a href="#" class="card-title hover:underline"
+                        >Coming soon...</a
+                      >
                     </h3>
 
                     <p class="card-text">Coming soon...</p>
@@ -820,7 +904,10 @@
               </li>
             </ul>
 
-            <button class="btn">Load more</button>
+            <button id="loadMoreBtn" class="btn">Load more</button>
+            <button id="resetSearchBtn" class="btn" style="display: none">
+              Go Back
+            </button>
           </div>
         </section>
 
@@ -899,6 +986,9 @@
             method="POST"
             class="newsletter-form"
           >
+            <!-- Hidden field to identify newsletter submissions -->
+            <input type="hidden" name="form_type" value="newsletter" />
+
             <input
               type="email"
               name="email"
@@ -1050,6 +1140,7 @@
     <script
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+      defer
     ></script>
   </body>
 </html>
