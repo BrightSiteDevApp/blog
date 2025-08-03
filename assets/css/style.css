@@ -1142,3 +1142,13 @@ body.active {
     padding-inline-end: 100px;
   }
 }
+.hidden {
+  display: none;
+}
+#resetSearchBtn {
+  margin-top: 1rem;
+  background-color: #eee;
+  color: #333;
+  display: none;
+}
+
