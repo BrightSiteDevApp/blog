@@ -55,7 +55,7 @@
 
     <header class="header section" data-header>
       <div class="container">
-        <a href="#" class="logo">
+        <a href="#" class="logo" onclick="scrollAndReload(); return false;">
           <img
             src="assets/images/logo.png"
             width="200"
@@ -76,9 +76,14 @@
             </li>
 
             <li class="navbar-item">
-              <a href="#" class="navbar-link hover:underline" data-nav-link
-                >Recent Post</a
+              <a
+                href="#recent"
+                class="navbar-link hover:underline"
+                data-nav-link
+                onclick="event.preventDefault(); scrollToRecentPosts();"
               >
+                Recent Post
+              </a>
             </li>
 
             <li class="navbar-item">
@@ -149,7 +154,7 @@
             <h1 class="h1 hero-title">
               <strong class="strong"
                 >Inspiring purpose driven lives through</strong
-              > faith, growth and personal development.
+              >faith, growth and personal development.
             </h1>
 
             <div class="wrapper">
@@ -232,7 +237,7 @@
 
                     <h3 class="h4">
                       <a
-                        href="articles/1/Your Dreams Unlock the Path to Success.html"
+                        href="articles/1/your-dreams-unlock-the-path-to-success.html"
                         class="card-title hover:underline"
                       >
                         Your Dreams Unlock the Path to Success
@@ -540,7 +545,7 @@
         - #RECENT POST
       -->
 
-        <section class="section recent" aria-label="recent post">
+        <section class="section recent" aria-label="recent post" id="recent">
           <div class="container">
             <div class="title-wrapper">
               <h2 class="h2 section-title">
@@ -573,11 +578,16 @@
             <ul class="grid-list">
               <p
                 id="no-results"
-                style="display: none; text-align: center; margin-top: 1rem"
+                style="
+                  display: none;
+                  text-align: center;
+                  margin-top: 1.5rem;
+                  font-size: 3.5rem;
+                  font-weight: 600;
+                "
               >
                 No matching articles found.
               </p>
-
               <li>
                 <div class="blog-card">
                   <figure
@@ -603,7 +613,7 @@
 
                     <h3 class="h4">
                       <a
-                        href="articles/1/Your Dreams Unlock the Path to Success.html"
+                        href="articles/1/your-dreams-unlock-the-path-to-success.html"
                         class="card-title hover:underline"
                       >
                         Your Dreams Unlock the Path to Success
@@ -714,30 +724,21 @@
                   <div class="card-content">
                     <ul class="card-meta-list">
                       <li>
-                        <a href="#" class="card-tag">Lifestyle</a>
+                        <a href="#" class="card-tag">loading</a>
                       </li>
 
                       <li>
-                        <a href="#" class="card-tag">People</a>
-                      </li>
-
-                      <li>
-                        <a href="#" class="card-tag">Review</a>
+                        <a href="#" class="card-tag">loading</a>
                       </li>
                     </ul>
 
                     <h3 class="h4">
                       <a href="#" class="card-title hover:underline">
-                        Creating is a privilege but it’s also a gift
+                        Coming soon...
                       </a>
                     </h3>
 
-                    <p class="card-text">
-                      Nullam vel lectus vel velit pellentesque dignissim nec id
-                      magna. Cras molestie ornare quam at semper. Proin a ipsum
-                      ex. Curabitur eu venenatis justo. Nullam felis augue,
-                      imperdiet at sodales a, sollicitudin nec risus.
-                    </p>
+                    <p class="card-text">Coming soon...</p>
                   </div>
                 </div>
               </li>
@@ -761,30 +762,21 @@
                   <div class="card-content">
                     <ul class="card-meta-list">
                       <li>
-                        <a href="#" class="card-tag">Lifestyle</a>
+                        <a href="#" class="card-tag">loading</a>
                       </li>
 
                       <li>
-                        <a href="#" class="card-tag">People</a>
-                      </li>
-
-                      <li>
-                        <a href="#" class="card-tag">Review</a>
+                        <a href="#" class="card-tag">loading</a>
                       </li>
                     </ul>
 
                     <h3 class="h4">
                       <a href="#" class="card-title hover:underline">
-                        Creating is a privilege but it’s also a gift
+                        Coming soon...
                       </a>
                     </h3>
 
-                    <p class="card-text">
-                      Nullam vel lectus vel velit pellentesque dignissim nec id
-                      magna. Cras molestie ornare quam at semper. Proin a ipsum
-                      ex. Curabitur eu venenatis justo. Nullam felis augue,
-                      imperdiet at sodales a, sollicitudin nec risus.
-                    </p>
+                    <p class="card-text">Coming soon...</p>
                   </div>
                 </div>
               </li>
@@ -808,30 +800,21 @@
                   <div class="card-content">
                     <ul class="card-meta-list">
                       <li>
-                        <a href="#" class="card-tag">Lifestyle</a>
+                        <a href="#" class="card-tag">loading</a>
                       </li>
 
                       <li>
-                        <a href="#" class="card-tag">People</a>
-                      </li>
-
-                      <li>
-                        <a href="#" class="card-tag">Review</a>
+                        <a href="#" class="card-tag">loading</a>
                       </li>
                     </ul>
 
                     <h3 class="h4">
                       <a href="#" class="card-title hover:underline">
-                        Creating is a privilege but it’s also a gift
+                        Coming soon...
                       </a>
                     </h3>
 
-                    <p class="card-text">
-                      Nullam vel lectus vel velit pellentesque dignissim nec id
-                      magna. Cras molestie ornare quam at semper. Proin a ipsum
-                      ex. Curabitur eu venenatis justo. Nullam felis augue,
-                      imperdiet at sodales a, sollicitudin nec risus.
-                    </p>
+                    <p class="card-text">Coming soon...</p>
                   </div>
                 </div>
               </li>
@@ -889,7 +872,7 @@
                   <div class="card-content">
                     <h3 class="h5">
                       <a
-                        href="articles/1/Your Dreams Unlock the Path to Success.html"
+                        href="articles/1/your-dreams-unlock-the-path-to-success.html"
                         class="card-title hover:underline"
                       >
                         Your Dreams Unlock the Path to Success
@@ -938,7 +921,7 @@
       <div class="container">
         <div class="footer-top section">
           <div class="footer-brand">
-            <a href="#" class="logo">
+            <a href="#" class="logo" onclick="scrollAndReload(); return false;">
               <img
                 src="assets/images/logo.png"
                 width="129"
@@ -968,7 +951,11 @@
             <li class="footer-list-item">
               <ion-icon name="logo-twitter"></ion-icon>
 
-              <a href="#" class="footer-link hover:underline">Twitter</a>
+              <a
+                href="https://x.com/princess_ehmy"
+                class="footer-link hover:underline"
+                >Twitter</a
+              >
             </li>
 
             <li class="footer-list-item">
@@ -984,7 +971,20 @@
             <li class="footer-list-item">
               <ion-icon name="logo-linkedin"></ion-icon>
 
-              <a href="#" class="footer-link hover:underline">Linkedin</a>
+              <a
+                href="https://linkedin.com/in/ruthem"
+                class="footer-link hover:underline"
+                >Linkedin</a
+              >
+            </li>
+            <li class="footer-list-item">
+              <ion-icon name="logo-instagram"></ion-icon>
+
+              <a
+                href="https://instagram.com/princess_ehmy"
+                class="footer-link hover:underline"
+                >Instagram</a
+              >
             </li>
           </ul>
 
@@ -1002,11 +1002,13 @@
             </li>
 
             <li>
-              <a href="#" class="footer-link hover:underline">Author</a>
+              <a href="about-author.html" class="footer-link hover:underline">Author</a>
             </li>
 
             <li>
-              <a href="#" class="footer-link hover:underline">Contact</a>
+              <a href="contact.html" class="footer-link hover:underline"
+                >Contact</a
+              >
             </li>
 
             <li>
@@ -1014,7 +1016,9 @@
             </li>
 
             <li>
-              <a href="#" class="footer-link hover:underline">Privacy Policy</a>
+              <a href="privacy-policy.html" class="footer-link hover:underline"
+                >Privacy Policy</a
+              >
             </li>
           </ul>
         </div>
@@ -1047,4 +1051,3 @@
     ></script>
   </body>
 </html>
-
