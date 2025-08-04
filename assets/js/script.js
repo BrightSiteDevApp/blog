@@ -58,71 +58,103 @@ const toggleSearchBar = function () {
 
 addEventOnElem(searchTogglers, "click", toggleSearchBar);
 
-/**
- * Static content search functionality
- */
-const blogCards = document.querySelectorAll(".blog-card");
-const searchMessage = document.querySelector(".search-bar-text");
+document.addEventListener("DOMContentLoaded", function () {
+  const blogItems = document.querySelectorAll(".blog-item");
+  const searchInput = document.querySelector(".input-field");
+  const searchMessage = document.querySelector(".search-bar-text");
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const resetSearchBtn = document.getElementById("resetSearchBtn");
+  const searchBar = document.querySelector("[data-search-bar]");
+  const overlay = document.querySelector("[data-overlay]");
+  const noResults = document.getElementById("no-results");
 
-// Create or get the "no results" message
-let noResults = document.getElementById("no-results");
-if (!noResults) {
-  noResults = document.createElement("p");
-  noResults.id = "no-results";
-  noResults.textContent = "No matching articles found.";
-  noResults.style.display = "none";
-  noResults.style.textAlign = "center";
-  noResults.style.marginTop = "1rem";
-  noResults.style.fontSize = "1.25rem"; // Makes the text bigger
-  noResults.style.fontWeight = "600"; // Optional: make it bolder
-  const gridList = document.querySelector(".grid-list");
-  if (gridList && gridList.parentNode) {
-    gridList.parentNode.insertBefore(noResults, gridList.nextSibling);
+  const initialVisibleCount = 3;
+
+  function showInitialArticles() {
+    blogItems.forEach((item, index) => {
+      if (index < initialVisibleCount) {
+        item.classList.remove("hidden");
+        item.style.display = "block";
+      } else {
+        item.classList.add("hidden");
+        item.style.display = "none";
+      }
+    });
+    loadMoreBtn.style.display =
+      blogItems.length > initialVisibleCount ? "block" : "none";
   }
-}
 
-searchInput.addEventListener("input", () => {
-  const query = searchInput.value.toLowerCase().trim();
+  function showAllArticles() {
+    blogItems.forEach((item) => {
+      item.classList.remove("hidden");
+      item.style.display = "block";
+    });
+    loadMoreBtn.style.display = "none";
+  }
 
-  if (query.length < 3) {
-    searchMessage.style.display = "block";
-    blogCards.forEach((card) => (card.style.display = "block"));
+  function resetArticlesView() {
+    showInitialArticles();
+    resetSearchBtn.style.display = "none";
     noResults.style.display = "none";
-    return;
-  } else {
-    searchMessage.style.display = "none";
+    searchMessage.style.display = "block";
   }
 
-  let matchCount = 0;
+  searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase().trim();
 
-  blogCards.forEach((card) => {
-    const titleEl = card.querySelector(".card-title");
-    const textEl = card.querySelector(".card-text");
+    if (query.length < 3) {
+      resetArticlesView();
+      return;
+    }
 
-    const title = titleEl ? titleEl.textContent.toLowerCase() : "";
-    const summary = textEl ? textEl.textContent.toLowerCase() : "";
+    loadMoreBtn.style.display = "none";
+    resetSearchBtn.style.display = "inline-block";
+    searchMessage.style.display = "none";
 
-    if (title.includes(query) || summary.includes(query)) {
-      card.style.display = "block";
-      matchCount++;
-    } else {
-      card.style.display = "none";
+    let matchCount = 0;
+
+    blogItems.forEach((item) => {
+      const card = item.querySelector(".blog-card");
+      const titleEl = card.querySelector(".card-title");
+      const textEl = card.querySelector(".card-text");
+
+      const title = titleEl ? titleEl.textContent.toLowerCase() : "";
+      const summary = textEl ? textEl.textContent.toLowerCase() : "";
+
+      if (title.includes(query) || summary.includes(query)) {
+        item.style.display = "block";
+        item.classList.remove("hidden");
+        matchCount++;
+      } else {
+        item.style.display = "none";
+      }
+    });
+
+    noResults.style.display = matchCount === 0 ? "block" : "none";
+  });
+
+  searchInput.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      searchInput.blur();
+
+      if (searchBar) searchBar.classList.remove("active");
+      if (overlay) overlay.classList.remove("active");
+      document.body.classList.remove("active");
     }
   });
 
-  noResults.style.display = matchCount === 0 ? "block" : "none";
-});
+  resetSearchBtn.addEventListener("click", function () {
+    searchInput.value = "";
+    resetArticlesView();
+  });
 
-searchInput.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    event.preventDefault(); // Prevent form submission or reload
-    searchInput.blur(); // Hide mobile keyboard
+  loadMoreBtn.addEventListener("click", function () {
+    showAllArticles();
+  });
 
-    // Optional: close search overlay
-    searchBar.classList.remove("active");
-    overlay.classList.remove("active");
-    document.body.classList.remove("active");
-  }
+  // 🔁 On load, show only first 3
+  showInitialArticles();
 });
 
 // scroll to top
@@ -154,3 +186,18 @@ function scrollToRecentPosts() {
     }
   }
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  const loadMoreBtn = document.getElementById("loadMoreBtn");
+
+  loadMoreBtn.addEventListener("click", function () {
+    const hiddenItems = document.querySelectorAll(".blog-item.hidden");
+    const itemsToShow = Array.from(hiddenItems).slice(0, 3); // load 3 only
+
+    itemsToShow.forEach((item) => item.classList.remove("hidden"));
+
+    if (document.querySelectorAll(".blog-item.hidden").length === 0) {
+      loadMoreBtn.style.display = "none";
+    }
+  });
+});
