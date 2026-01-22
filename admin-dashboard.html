@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPG Admin CMS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
+    <style>
+        body { background-color: #f0f2f5; padding-bottom: 100px; }
+        .nav-tabs .nav-link.active { background-color: hsl(43, 61%, 50%); color: white; border-color: hsl(43, 61%, 50%); }
+        .nav-tabs .nav-link { color: hsl(240, 8%, 18%); font-weight: 500; }
+        .card { border: none; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border-radius: 12px; }
+        .btn-primary-custom { background-color: hsl(43, 61%, 50%); border: none; color: white; }
+        .btn-primary-custom:hover { background-color: hsl(43, 61%, 40%); color: white; }
+        .table-img { width: 50px; height: 50px; object-fit: cover; border-radius: 4px; }
+        
+        /* Loader */
+        .loading-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.9); z-index: 9999; display: none;
+            justify-content: center; align-items: center; flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">TPG Admin Panel</a>
+        <div class="d-flex">
+            <button id="logoutBtn" class="btn btn-outline-light btn-sm">Logout</button>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    
+    <ul class="nav nav-tabs mb-4" id="adminTabs" role="tablist">
+        <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#events">Upcoming Events</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#facilitators">Facilitators</button></li>
+        <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#outreach">Outreach Programs</button></li>
+    </ul>
+
+    <div class="tab-content">
+
+        <div class="tab-pane fade show active" id="events">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card p-4">
+                        <h5 class="mb-3 fw-bold" id="eventFormTitle">Add New Event</h5>
+                        <form id="eventForm">
+                            <input type="hidden" id="eventId">
+                            <div class="mb-3"><label class="form-label small text-muted">Title</label><input type="text" id="eventTitle" class="form-control" required></div>
+                            <div class="mb-3"><label class="form-label small text-muted">Date</label><input type="date" id="eventDate" class="form-control" required></div>
+                            <div class="mb-3"><label class="form-label small text-muted">Description</label><textarea id="eventDesc" class="form-control" rows="3" required></textarea></div>
+                            <div class="mb-3"><label class="form-label small text-muted">Image</label><input type="file" id="eventFile" class="form-control" accept="image/*"><input type="hidden" id="eventCurrentImg"></div>
+                            <div class="d-grid gap-2"><button type="submit" class="btn btn-primary-custom" id="eventSubmitBtn">Publish Event</button><button type="button" class="btn btn-secondary btn-sm d-none" id="eventCancelBtn">Cancel Edit</button></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-8"><div class="card p-4"><h5 class="mb-3 fw-bold">Manage Events</h5><div class="table-responsive"><table class="table table-hover align-middle"><thead><tr><th>Img</th><th>Title</th><th>Date</th><th>Actions</th></tr></thead><tbody id="eventsTableBody"></tbody></table></div></div></div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="facilitators">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card p-4">
+                        <h5 class="mb-3 fw-bold" id="facFormTitle">Add Facilitator</h5>
+                        <form id="facForm">
+                            <input type="hidden" id="facId">
+                            <div class="mb-3"><label class="form-label small text-muted">Full Name</label><input type="text" id="facName" class="form-control" required></div>
+                            <div class="mb-3"><label class="form-label small text-muted">Role</label><input type="text" id="facRole" class="form-control" required></div>
+                            <div class="mb-3"><label class="form-label small text-muted">Photo</label><input type="file" id="facFile" class="form-control" accept="image/*"><input type="hidden" id="facCurrentImg"></div>
+                            <div class="d-grid gap-2"><button type="submit" class="btn btn-primary-custom" id="facSubmitBtn">Add Person</button><button type="button" class="btn btn-secondary btn-sm d-none" id="facCancelBtn">Cancel Edit</button></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-8"><div class="card p-4"><h5 class="mb-3 fw-bold">Manage Team</h5><div class="table-responsive"><table class="table table-hover align-middle"><thead><tr><th>Img</th><th>Name</th><th>Role</th><th>Actions</th></tr></thead><tbody id="facTableBody"></tbody></table></div></div></div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="outreach">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card p-4">
+                        <h5 class="mb-3 fw-bold" id="outreachFormTitle">Add Outreach</h5>
+                        <form id="outreachForm">
+                            <input type="hidden" id="outreachId">
+                            <div class="mb-3"><label class="form-label small text-muted">Program Title</label><input type="text" id="outreachTitle" class="form-control" required placeholder="e.g. First Outreach"></div>
+                            <div class="mb-3"><label class="form-label small text-muted">Date (Text)</label><input type="text" id="outreachDate" class="form-control" required placeholder="e.g. July 14, 2023"></div>
+                            <div class="mb-3"><label class="form-label small text-muted">Short Description</label><textarea id="outreachShort" class="form-control" rows="2" required></textarea></div>
+                            <div class="mb-3"><label class="form-label small text-muted">Full Story</label><textarea id="outreachFull" class="form-control" rows="4" required></textarea></div>
+                            
+                            <div class="mb-3"><label class="form-label small text-muted">Banner Image (Main Cover)</label><input type="file" id="outreachFile" class="form-control" accept="image/*"><input type="hidden" id="outreachCurrentImg"></div>
+
+                            <div class="mb-3 p-2 border rounded bg-light">
+                                <label class="form-label fw-bold small text-primary">📸 Gallery Images (Select 10+)</label>
+                                <input type="file" id="outreachGalleryFiles" class="form-control" accept="image/*" multiple>
+                                <small class="text-muted d-block mt-1" style="font-size:0.75rem;">Hold 'Ctrl' or 'Shift' to select multiple photos.</small>
+                                <input type="hidden" id="outreachCurrentGallery"> </div>
+
+                            <div class="d-grid gap-2"><button type="submit" class="btn btn-primary-custom" id="outreachSubmitBtn">Add Program</button><button type="button" class="btn btn-secondary btn-sm d-none" id="outreachCancelBtn">Cancel Edit</button></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-8"><div class="card p-4"><h5 class="mb-3 fw-bold">Manage Programs</h5><div class="table-responsive"><table class="table table-hover align-middle"><thead><tr><th>Img</th><th>Title</th><th>Date</th><th>Actions</th></tr></thead><tbody id="outreachTableBody"></tbody></table></div></div></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="loading-overlay" id="loader">
+    <div class="spinner-border text-warning" role="status"></div>
+    <p class="mt-2 fw-bold" id="loaderText">Processing...</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script type="module">
+    import { auth, db } from "./assets/js/firebase-init.js";
+    import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-auth.js";
+    import { collection, addDoc, updateDoc, deleteDoc, doc, onSnapshot, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+
+    const IMGBB_API_KEY = "bfbd5166aef0c00c130b2bc6a41558c5";
+    const loader = document.getElementById('loader');
+    const loaderText = document.getElementById('loaderText');
+
+    onAuthStateChanged(auth, (user) => { if (!user) window.location.href = "admin-login.html"; });
+    document.getElementById('logoutBtn').addEventListener('click', () => signOut(auth));
+
+    // --- HELPER: Upload Single Image ---
+    async function uploadImage(file) {
+        if (!file) return null;
+        const formData = new FormData();
+        formData.append("image", file);
+        const res = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_API_KEY}`, { method: "POST", body: formData });
+        const data = await res.json();
+        return data.success ? data.data.url : null;
+    }
+
+    // --- NEW HELPER: Upload Multiple Images ---
+    async function uploadGalleryImages(fileList) {
+        if (!fileList || fileList.length === 0) return [];
+        let urls = [];
+        for (let i = 0; i < fileList.length; i++) {
+            // Update loader text so user knows progress
+            loaderText.innerText = `Uploading Gallery Image ${i + 1} of ${fileList.length}...`;
+            const url = await uploadImage(fileList[i]);
+            if (url) urls.push(url);
+        }
+        return urls;
+    }
+
+    // --- SUBMISSION HANDLERS ---
+    
+    // 1. Events
+    document.getElementById('eventForm').onsubmit = async (e) => {
+        e.preventDefault();
+        loader.style.display = "flex"; loaderText.innerText = "Saving Event...";
+        try {
+            const id = document.getElementById('eventId').value;
+            const file = document.getElementById('eventFile').files[0];
+            let imageUrl = document.getElementById('eventCurrentImg').value;
+            if(file) imageUrl = await uploadImage(file);
+
+            const data = {
+                title: document.getElementById('eventTitle').value,
+                date: document.getElementById('eventDate').value,
+                description: document.getElementById('eventDesc').value,
+                imageUrl, updatedAt: serverTimestamp()
+            };
+            if(!id) data.createdAt = serverTimestamp();
+
+            id ? await updateDoc(doc(db, 'upcoming_events', id), data) : await addDoc(collection(db, 'upcoming_events'), data);
+            alert("Success!"); resetForm('event');
+        } catch(err) { alert(err.message); } finally { loader.style.display = "none"; }
+    };
+
+    // 2. Facilitators
+    document.getElementById('facForm').onsubmit = async (e) => {
+        e.preventDefault();
+        loader.style.display = "flex"; loaderText.innerText = "Saving Facilitator...";
+        try {
+            const id = document.getElementById('facId').value;
+            const file = document.getElementById('facFile').files[0];
+            let imageUrl = document.getElementById('facCurrentImg').value;
+            if(file) imageUrl = await uploadImage(file);
+
+            const data = {
+                name: document.getElementById('facName').value,
+                role: document.getElementById('facRole').value,
+                imageUrl, updatedAt: serverTimestamp()
+            };
+            if(!id) data.createdAt = serverTimestamp();
+
+            id ? await updateDoc(doc(db, 'facilitators', id), data) : await addDoc(collection(db, 'facilitators'), data);
+            alert("Success!"); resetForm('fac');
+        } catch(err) { alert(err.message); } finally { loader.style.display = "none"; }
+    };
+
+    // 3. Outreach (WITH GALLERY)
+    document.getElementById('outreachForm').onsubmit = async (e) => {
+        e.preventDefault();
+        loader.style.display = "flex"; loaderText.innerText = "Uploading Banner...";
+        
+        try {
+            const id = document.getElementById('outreachId').value;
+            const bannerFile = document.getElementById('outreachFile').files[0];
+            const galleryFiles = document.getElementById('outreachGalleryFiles').files;
+            
+            // Handle Banner
+            let imageUrl = document.getElementById('outreachCurrentImg').value;
+            if(bannerFile) imageUrl = await uploadImage(bannerFile);
+
+            // Handle Gallery
+            let galleryImages = [];
+            const existingGalleryJson = document.getElementById('outreachCurrentGallery').value;
+            
+            // If editing, start with existing images
+            if (id && existingGalleryJson) {
+                try { galleryImages = JSON.parse(existingGalleryJson); } catch(e){}
+            }
+
+            // Upload new gallery files and append them
+            if (galleryFiles.length > 0) {
+                const newGalleryUrls = await uploadGalleryImages(galleryFiles);
+                galleryImages = [...galleryImages, ...newGalleryUrls];
+            }
+
+            const data = {
+                title: document.getElementById('outreachTitle').value,
+                date: document.getElementById('outreachDate').value,
+                shortDesc: document.getElementById('outreachShort').value,
+                fullDesc: document.getElementById('outreachFull').value,
+                imageUrl: imageUrl,
+                galleryImages: galleryImages, // Save Array
+                updatedAt: serverTimestamp()
+            };
+            
+            if(!id) data.createdAt = serverTimestamp();
+
+            loaderText.innerText = "Saving to Database...";
+            id ? await updateDoc(doc(db, 'outreach_programs', id), data) : await addDoc(collection(db, 'outreach_programs'), data);
+            
+            alert("Program & Gallery Uploaded Successfully!"); 
+            resetForm('outreach');
+        } catch(err) { alert(err.message); } finally { loader.style.display = "none"; }
+    };
+
+
+    // --- LISTENER & RESET LOGIC ---
+    function listenToCollection(colName, tableBodyId, renderRow) {
+        const q = query(collection(db, colName), orderBy("createdAt", "desc"));
+        onSnapshot(q, (snapshot) => {
+            const tbody = document.getElementById(tableBodyId);
+            tbody.innerHTML = "";
+            snapshot.forEach(docSnap => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = renderRow(docSnap.id, docSnap.data());
+                tbody.appendChild(tr);
+            });
+            document.querySelectorAll(`.btn-delete-${colName}`).forEach(btn => btn.onclick = () => deleteItem(colName, btn.dataset.id));
+            document.querySelectorAll(`.btn-edit-${colName}`).forEach(btn => btn.onclick = () => loadForEdit(colName, btn.dataset.id, JSON.parse(decodeURIComponent(btn.dataset.object))));
+        });
+    }
+
+    async function deleteItem(colName, id) { if(confirm("Delete?")) await deleteDoc(doc(db, colName, id)); }
+
+    function loadForEdit(colName, id, data) {
+        if(colName === 'upcoming_events') {
+            document.getElementById('eventId').value = id;
+            document.getElementById('eventTitle').value = data.title;
+            document.getElementById('eventDate').value = data.date;
+            document.getElementById('eventDesc').value = data.description;
+            document.getElementById('eventCurrentImg').value = data.imageUrl;
+            toggleEdit('event');
+        } else if (colName === 'facilitators') {
+            document.getElementById('facId').value = id;
+            document.getElementById('facName').value = data.name;
+            document.getElementById('facRole').value = data.role;
+            document.getElementById('facCurrentImg').value = data.imageUrl;
+            toggleEdit('fac');
+        } else if (colName === 'outreach_programs') {
+            document.getElementById('outreachId').value = id;
+            document.getElementById('outreachTitle').value = data.title;
+            document.getElementById('outreachDate').value = data.date;
+            document.getElementById('outreachShort').value = data.shortDesc;
+            document.getElementById('outreachFull').value = data.fullDesc;
+            document.getElementById('outreachCurrentImg').value = data.imageUrl;
+            
+            // Store existing gallery in hidden input
+            document.getElementById('outreachCurrentGallery').value = JSON.stringify(data.galleryImages || []);
+            toggleEdit('outreach');
+        }
+    }
+
+    function toggleEdit(prefix) {
+        document.getElementById(`${prefix}FormTitle`).innerText = "Edit Item";
+        document.getElementById(`${prefix}SubmitBtn`).innerText = "Update Item";
+        document.getElementById(`${prefix}CancelBtn`).classList.remove("d-none");
+        document.getElementById(`${prefix}CancelBtn`).onclick = () => resetForm(prefix);
+    }
+
+    function resetForm(prefix) {
+        document.getElementById(`${prefix}Form`).reset();
+        document.getElementById(`${prefix}Id`).value = "";
+        document.getElementById(`${prefix}CurrentImg`).value = "";
+        if(prefix === 'outreach') document.getElementById('outreachCurrentGallery').value = "";
+        
+        document.getElementById(`${prefix}FormTitle`).innerText = prefix === 'event' ? "Add New Event" : (prefix === 'fac' ? "Add Facilitator" : "Add Outreach");
+        document.getElementById(`${prefix}SubmitBtn`).innerText = prefix === 'outreach' ? "Add Program" : "Publish/Add";
+        document.getElementById(`${prefix}CancelBtn`).classList.add("d-none");
+    }
+
+    // Initialize Lists
+    listenToCollection('upcoming_events', 'eventsTableBody', (id, data) => `<td><img src="${data.imageUrl}" class="table-img"></td><td>${data.title}</td><td>${data.date}</td><td><button class="btn btn-sm btn-outline-primary btn-edit-upcoming_events" data-id="${id}" data-object="${encodeURIComponent(JSON.stringify(data))}"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger btn-delete-upcoming_events" data-id="${id}"><i class="bi bi-trash"></i></button></td>`);
+    listenToCollection('facilitators', 'facTableBody', (id, data) => `<td><img src="${data.imageUrl}" class="table-img"></td><td>${data.name}</td><td>${data.role}</td><td><button class="btn btn-sm btn-outline-primary btn-edit-facilitators" data-id="${id}" data-object="${encodeURIComponent(JSON.stringify(data))}"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger btn-delete-facilitators" data-id="${id}"><i class="bi bi-trash"></i></button></td>`);
+    listenToCollection('outreach_programs', 'outreachTableBody', (id, data) => `<td><img src="${data.imageUrl}" class="table-img"></td><td>${data.title}</td><td>${data.date}</td><td><button class="btn btn-sm btn-outline-primary btn-edit-outreach_programs" data-id="${id}" data-object="${encodeURIComponent(JSON.stringify(data))}"><i class="bi bi-pencil"></i></button> <button class="btn btn-sm btn-outline-danger btn-delete-outreach_programs" data-id="${id}"><i class="bi bi-trash"></i></button></td>`);
+
+</script>
+</body>
+</html>

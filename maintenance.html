@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Under Maintenance | The Purposeful Generation</title>
+  <link rel="shortcut icon" href="all-images/logo.png" type="image/png">
+
+  <meta name="description" content="The Purposeful Generation website is currently upgrading. We will be back shortly!">
+  
+  <meta property="og:title" content="We Are Upgrading | The Purposeful Generation">
+  <meta property="og:description" content="Our website is currently undergoing scheduled maintenance to serve you better. check back soon!">
+  <meta property="og:image" content="https://brightsitedevapp.github.io/TPG/all-images/logo.png">
+  <meta property="og:url" content="https://brightsitedevapp.github.io/TPG/">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="We Are Upgrading | TPG">
+  <meta name="twitter:description" content="Our website is currently undergoing scheduled maintenance to serve you better.">
+  <meta name="twitter:image" content="https://brightsitedevapp.github.io/TPG/all-images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --orange-web: hsl(43, 61%, 50%);
+      --rich-black: hsl(240, 13%, 8%);
+      --white: #ffffff;
+      --gray: hsl(0, 0%, 70%);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Rubik', sans-serif;
+      background-color: var(--rich-black);
+      color: var(--white);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      background-image: radial-gradient(circle at center, #2a2a35 0%, #0c0c11 100%);
+    }
+
+    .container {
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .logo {
+      width: 150px;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: var(--orange-web);
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .loader {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(255, 255, 255, 0.1);
+      border-top: 5px solid var(--orange-web);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 30px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .contact-btn {
+      display: inline-block;
+      background-color: var(--orange-web);
+      color: var(--white);
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .contact-btn:hover {
+      background-color: #ff9f43;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 500px) {
+      h1 { font-size: 1.8rem; }
+      .container { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <img src="all-images/logo2.png" alt="TPG Logo" class="logo">
+    
+    <div class="loader"></div>
+
+    <h1>We Are Upgrading</h1>
+    <p>
+      The Purposeful Generation website is currently undergoing scheduled maintenance to serve you better. 
+      We are implementing exciting new features and will be back shortly.
+    </p>
+
+    <a href="mailto:thepurposefulg@gmail.com" class="contact-btn">Contact Us</a>
+  </div>
+
+</body>
+</html>

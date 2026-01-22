@@ -1,1146 +1,656 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Basic Page Needs -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Miss Ruth Emmanuel | Founder of The Purposeful Generation</title>
 
-    <!-- SEO Meta Tags -->
-    <meta
-      name="description"
-      content="Official blog of Miss Ruth Emmanuel, founder of The Purposeful Generation. Explore inspiring content on education, motivation, healthy living, food, children's outreach, and youth empowerment."
-    />
-    <meta
-      name="keywords"
-      content="Ruth Emmanuel, The Purposeful Generation, education, motivation, healthy living, food, children's outreach, youth empowerment, teen mentorship, inspiration, Nigeria, blog"
-    />
-    <meta name="author" content="Miss Ruth Emmanuel" />
+<head>
 
-    <!-- Social Sharing (Open Graph) -->
-    <meta
-      property="og:title"
-      content="Miss Ruth Emmanuel | The Purposeful Generation"
-    />
-    <meta
-      property="og:description"
-      content="Explore blog posts, thoughts, and updates from the founder of The Purposeful Generation."
-    />
-    <meta property="og:image" content="link-to-thumbnail.jpg" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yourblogdomain.com" />
+  <!----
 
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      href="assets/images/head-logo.png"
-      type="image/png"
-      sizes="192x192"
-    />
+  <script>
+  // 1. Check if the URL has the secret code "?mode=admin"
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('mode') === 'admin') {
+      // Save a "Developer Pass" in the browser
+      localStorage.setItem('tpg_dev_mode', 'true');
+      alert("Developer Access Granted! Maintenance mode disabled for you.");
+      // Clean the URL to hide the secret
+      window.history.replaceState({}, document.title, window.location.pathname);
+  }
 
-    <!-- Google Fonts (optional) -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- CSS File -->
-    <link rel="stylesheet" href="assets/css/style.css" />
-  </head>
+  // 2. Check if the user is a normal visitor (No Developer Pass)
+  if (!localStorage.getItem('tpg_dev_mode')) {
+      // If they are NOT on the maintenance page, send them there
+      if (!window.location.href.includes("maintenance.html")) {
+          window.location.replace("maintenance.html");
+      }
+  }
+</script> -->
 
-  <body>
-    <!-- 
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Purposeful Generation - Empowering Students</title>
+
+<!-- google site verification -->
+  <meta name="google-site-verification" content="kmHUZHphSS3rVISmRkIKHJ7SHX90jouqjF6DKd8KR_c" />
+
+  <!-- Meta SEO Tags -->
+  <meta name="description" content="The Purposeful Generation is a youth-focused NGO that empowers secondary school students through digital skills, career guidance, and moral development.">
+  <meta name="keywords" content="NGO, youth outreach, student empowerment, digital skills, career guidance, moral development, drug abuse awareness, education">
+  <meta name="author" content="The Purposeful Generation">
+
+  <!-- Open Graph Tags (for social media sharing) -->
+<meta property="og:title" content="The Purposeful Generation - Empowering Students">
+<meta property="og:description" content="An NGO mentoring students to discover purpose, career paths, digital skills, and healthy living.">
+<meta property="og:image" content="https://brightsitedevapp.github.io/TPG/all-images/logo.png">
+<meta property="og:url" content="https://brightsitedevapp.github.io/TPG/">
+<meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="all-images/logo.png" type="image/svg+xml">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Poppins:wght@600;700&family=Rubik:wght@400;500&display=swap"
+    rel="stylesheet">
+
+</head>
+
+<body id="top">
+
+  <!-- 
     - #HEADER
   -->
 
-    <header class="header section" data-header>
-      <div class="container">
-        <a href="#" class="logo" onclick="scrollAndReload(); return false;">
-          <img
-            src="assets/images/logo.png"
-            width="200"
-            height="200"
-            alt="blog logo"
-          />
-        </a>
+  <header class="header" data-header>
+    <div class="container">
 
-        <nav class="navbar" data-navbar>
-          <ul class="navbar-list">
-            <li class="navbar-item">
-              <a
-                href="index.html"
-                class="navbar-link hover:underline"
-                data-nav-link
-                >Home</a
-              >
-            </li>
+      <a href="/index.html" class="logo">
+        <img src="all-images/logo2.png" alt="TPG logo">
+      </a>
 
-            <li class="navbar-item">
-              <a
-                href="#recent"
-                class="navbar-link hover:underline"
-                data-nav-link
-                onclick="event.preventDefault(); scrollToRecentPosts();"
-              >
-                Recent Post
-              </a>
-            </li>
+      <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
 
-            <li class="navbar-item">
-              <a href="membership.html" class="navbar-link hover:underline" data-nav-link
-                >Membership</a
-              >
-            </li>
-          </ul>
-        </nav>
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li><a href="/index.html" class="navbar-link">Home</a></li>
+          <li><a href="outreach/" class="navbar-link">Programs</a></li>
+          <li><a href="upcoming/" class="navbar-link">Upcoming Events</a></li>
+          <li><a href="facilitators/" class="navbar-link">Facilitators</a></li>
+          <li><a href="https://forms.gle/QSWAaJ5KsvE1VRS66" target="_blank" class="navbar-link">Join Us</a></li>
+          
+          <li class="mobile-sponsor">
+             <a href="https://wa.me/2348103762754" target="_blank" class="btn btn-sponsor">
+              Sponsor <ion-icon name="heart"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-        <div class="wrapper">
-          <button class="search-btn" aria-label="search" data-search-toggler>
-            <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
+      <a href="https://wa.me/2348103762754" target="_blank" class="btn btn-sponsor desktop-sponsor">
+        Sponsor <ion-icon name="heart"></ion-icon>
+      </a>
 
-            <span class="span">Search</span>
-          </button>
-
-          <button
-            class="nav-toggle-btn"
-            aria-label="toggle menu"
-            data-nav-toggler
-          >
-            <span class="span one"></span>
-            <span class="span two"></span>
-            <span class="span three"></span>
-          </button>
-
-          <a href="#" class="btn">Join</a>
-        </div>
-      </div>
-    </header>
-
-    <!-- 
-    - #SEARCH BAR
-  -->
-
-    <div class="search-bar" data-search-bar>
-      <div class="input-wrapper">
-        <input
-          type="search"
-          name="search"
-          placeholder="Search"
-          class="input-field"
-        />
-
-        <button
-          class="search-close-btn"
-          aria-label="close search bar"
-          data-search-toggler
-        >
-          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
-        </button>
-      </div>
-
-      <p class="search-bar-text">Please enter at least 3 characters</p>
     </div>
+  </header>
 
-    <div class="overlay" data-overlay data-search-toggler></div>
 
-    <main>
-      <article>
-        <!-- 
-        - #HERO
-      -->
+  <main>
+    <article>
+ <!-- - #HERO-->
 
-        <section class="section hero" aria-label="home">
-          <div class="container">
-            <h1 class="h1 hero-title">
-              <strong class="strong"
-                >Inspiring purpose driven lives through</strong
-              >faith, growth and personal development.
-            </h1>
+ <section class="hero" id="home">
+        <div class="container">
 
-            <div class="wrapper">
-              <form
-                action="https://formspree.io/f/meozlrbl"
-                method="POST"
-                class="newsletter-form"
-              >
-                <!-- Hidden input to identify this as newsletter -->
-                <input type="hidden" name="form_type" value="newsletter" />
+          <figure class="hero-banner">
+            <img src="all-images/pic1.jpg" alt="The Purposeful Generation.">
+          </figure>
 
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Your email address"
-                  class="email-field"
-                  required
-                />
+          <div class="hero-content">
 
-                <button type="submit" class="btn">Subscribe</button>
-              </form>
+            <h1 class="h1 hero-title">THE PURPOSEFUL GENERATION</h1>
 
-              <p class="newsletter-text">
-                Get the email newsletter and unlock access to members-only
-                content and updates
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- 
-        - #FEATURED POST
-      -->
-
-        <section class="section featured" aria-label="featured post">
-          <div class="container">
-            <p class="section-subtitle">
-              Get started with our <strong class="strong">best stories</strong>
+            <p class="section-text">
+              Shifting the minds of the young generation to see
+              the possibilities in themselves.
             </p>
 
-            <ul class="has-scrollbar">
-              <li class="scrollbar-item">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 500; --height: 600"
-                  >
-                    <img
-                      src="articles/1/image.jpg"
-                      width="500"
-                      height="600"
-                      loading="lazy"
-                      alt="New technology is not good or evil in and of itself"
-                      class="img-cover"
-                    />
+            <button class="btn btn-primary">Discover More</button>
 
-                    <ul class="avatar-list absolute">
-                      <li class="avatar-item">
-                        <a
-                          href="about-author.html"
-                          class="avatar img-holder"
-                          style="--width: 100; --height: 100"
-                        >
-                          <img
-                            src="assets/images/Ruth Emmanuel.png"
-                            width="100"
-                            height="100"
-                            loading="lazy"
-                            alt="Author"
-                            class="img-cover"
-                          />
-                        </a>
-                      </li>
-                    </ul>
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li class="card-tag">Health</li>
-                      <li class="card-tag">Mindset</li>
-                      <li class="card-tag">Motivation</li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a
-                        href="articles/1/your-dreams-unlock-the-path-to-success.html"
-                        class="card-title hover:underline"
-                      >
-                        Your Dreams Unlock the Path to Success
-                      </a>
-                    </h3>
-
-                    <p class="card-text">
-                      Can dreaming big really lead to achieving success? Many
-                      believe that having a clear vision of their aspirations is
-                      the first step towards making them a reality.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="scrollbar-item">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 500; --height: 600"
-                  >
-                    <img
-                      src="assets/images/loading.jpg"
-                      width="500"
-                      height="600"
-                      loading="lazy"
-                      alt="It’s a new era in design, there are no rules"
-                      class="img-cover"
-                    />
-
-                    <ul class="avatar-list absolute">
-                      <li class="avatar-item">
-                        <a
-                          href="about-author.html"
-                          class="avatar img-holder"
-                          style="--width: 100; --height: 100"
-                        >
-                          <img
-                            src="assets/images/Ruth Emmanuel.png"
-                            width="100"
-                            height="100"
-                            loading="lazy"
-                            alt="Author"
-                            class="img-cover"
-                          />
-                        </a>
-                      </li>
-                    </ul>
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li>
-                        <a href="#" class="card-tag">loading...</a>
-                      </li>
-
-                      <li>
-                        <a href="#" class="card-tag">loading...</a>
-                      </li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a href="#" class="card-title hover:underline">
-                        Coming soon...
-                      </a>
-                    </h3>
-
-                    <p class="card-text">Coming soon...</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="scrollbar-item">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 500; --height: 600"
-                  >
-                    <img
-                      src="assets/images/loading.jpg"
-                      width="500"
-                      height="600"
-                      loading="lazy"
-                      alt="Perfection has to do with the end product"
-                      class="img-cover"
-                    />
-
-                    <ul class="avatar-list absolute">
-                      <li class="avatar-item">
-                        <a
-                          href="about-author.html"
-                          class="avatar img-holder"
-                          style="--width: 100; --height: 100"
-                        >
-                          <img
-                            src="assets/images/Ruth Emmanuel.png"
-                            width="100"
-                            height="100"
-                            loading="lazy"
-                            alt="Author"
-                            class="img-cover"
-                          />
-                        </a>
-                      </li>
-                    </ul>
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li>
-                        <a href="#" class="card-tag">loading...</a>
-                      </li>
-
-                      <li>
-                        <a href="#" class="card-tag">loading...</a>
-                      </li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a href="#" class="card-title hover:underline">
-                        Coming soon...
-                      </a>
-                    </h3>
-
-                    <p class="card-text">Coming soon...</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="scrollbar-item">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 500; --height: 600"
-                  >
-                    <img
-                      src="assets/images/loading.jpg"
-                      width="500"
-                      height="600"
-                      loading="lazy"
-                      alt="Everyone has a different life story"
-                      class="img-cover"
-                    />
-
-                    <ul class="avatar-list absolute">
-                      <li class="avatar-item">
-                        <a
-                          href="about-author.html"
-                          class="avatar img-holder"
-                          style="--width: 100; --height: 100"
-                        >
-                          <img
-                            src="assets/images/Ruth Emmanuel.png"
-                            width="100"
-                            height="100"
-                            loading="lazy"
-                            alt="Author"
-                            class="img-cover"
-                          />
-                        </a>
-                      </li>
-                    </ul>
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
-
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a href="#" class="card-title hover:underline">
-                        Coming soon..
-                      </a>
-                    </h3>
-
-                    <p class="card-text">Coming soon...</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="scrollbar-item">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 500; --height: 600"
-                  >
-                    <img
-                      src="assets/images/loading.jpg"
-                      width="500"
-                      height="600"
-                      loading="lazy"
-                      alt="The difference is quality"
-                      class="img-cover"
-                    />
-
-                    <ul class="avatar-list absolute">
-                      <li class="avatar-item">
-                        <a
-                          href="about-author.html"
-                          class="avatar img-holder"
-                          style="--width: 100; --height: 100"
-                        >
-                          <img
-                            src="assets/images/Ruth Emmanuel.png"
-                            width="100"
-                            height="100"
-                            loading="lazy"
-                            alt="Author"
-                            class="img-cover"
-                          />
-                        </a>
-                      </li>
-                    </ul>
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
-
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a href="#" class="card-title hover:underline">
-                        Coming soon...
-                      </a>
-                    </h3>
-
-                    <p class="card-text">Coming soon...</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="scrollbar-item">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 500; --height: 600"
-                  >
-                    <img
-                      src="assets/images/loading.jpg"
-                      width="500"
-                      height="600"
-                      loading="lazy"
-                      alt="Problems are not stop signs, they are guidelines"
-                      class="img-cover"
-                    />
-
-                    <ul class="avatar-list absolute">
-                      <li class="avatar-item">
-                        <a
-                          href="about-author.html"
-                          class="avatar img-holder"
-                          style="--width: 100; --height: 100"
-                        >
-                          <img
-                            src="assets/images/Ruth Emmanuel.png"
-                            width="100"
-                            height="100"
-                            loading="lazy"
-                            alt="Author"
-                            class="img-cover"
-                          />
-                        </a>
-                      </li>
-                    </ul>
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
-
-                      <li>
-                        <a href="#" class="card-tag">loading</a>
-                      </li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a href="#" class="card-title hover:underline">
-                        Coming soon...
-                      </a>
-                    </h3>
-
-                    <p class="card-text">Coming soon...</p>
-                  </div>
-                </div>
-              </li>
-            </ul>
           </div>
-        </section>
 
-        <!-- 
-        - #RECENT POST
-      -->
+        </div>
+      </section>
 
-        <section class="section recent" aria-label="recent post" id="recent">
-          <div class="container">
-            <div class="title-wrapper">
-              <h2 class="h2 section-title">
-                See what we’ve <strong class="strong">written lately</strong>
-              </h2>
 
-              <div class="top-author">
-                <ul class="avatar-list">
-                  <li class="avatar-item">
-                    <a
-                      href="about-author.html"
-                      class="avatar large img-holder"
-                      style="--width: 100; --height: 100"
-                    >
-                      <img
-                        src="assets/images/Ruth Emmanuel.png"
-                        width="100"
-                        height="100"
-                        alt="top author"
-                        class="img-cover"
-                      />
-                    </a>
-                  </li>
-                </ul>
+      <!-- - #ABOUT -->
 
-                <span class="span">Meet The Author</span>
-              </div>
-            </div>
+      <section id="about" class="about">
+        <div class="container">
 
-            <ul class="grid-list">
-              <p
-                id="no-results"
-                style="
-                  display: none;
-                  text-align: center;
-                  margin-top: 1.5rem;
-                  font-size: 3.5rem;
-                  font-weight: 600;
-                "
-              >
-                No matching articles found.
-              </p>
+          <figure class="about-banner">
+            <img src="all-images/pic2.jpg" alt="TPG" class="about-img">
+            
+            <img src="./assets/images/about-vector.svg" alt="Vector line art" class="vector-line">
 
-              <!-- ARTICLE 1 -->
-              <li class="blog-item">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 550; --height: 660"
-                  >
-                    <img
-                      src="articles/1/image.jpg"
-                      width="550"
-                      height="660"
-                      loading="lazy"
-                      alt="Your Dreams Unlock the Path to Success"
-                      class="img-cover"
-                    />
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li class="card-tag">Health</li>
-                      <li class="card-tag">Mindset</li>
-                      <li class="card-tag">Motivation</li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a
-                        href="articles/1/your-dreams-unlock-the-path-to-success.html"
-                        class="card-title hover:underline"
-                      >
-                        Your Dreams Unlock the Path to Success
-                      </a>
-                    </h3>
-
-                    <p class="card-text">
-                      Can dreaming big really lead to achieving success? Many
-                      believe that having a clear vision of their aspirations is
-                      the first step towards making them a reality.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <!-- ARTICLE 2 -->
-              <li class="blog-item">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 550; --height: 660"
-                  >
-                    <img
-                      src="assets/images/loading.jpg"
-                      width="550"
-                      height="660"
-                      loading="lazy"
-                      alt="Creating is a privilege but it’s also a gift"
-                      class="img-cover"
-                    />
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li><a href="#" class="card-tag">loading</a></li>
-                      <li><a href="#" class="card-tag">loading</a></li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a href="#" class="card-title hover:underline"
-                        >Coming soon...</a
-                      >
-                    </h3>
-
-                    <p class="card-text">Coming soon...</p>
-                  </div>
-                </div>
-              </li>
-
-              <!-- ARTICLE 3 -->
-              <li class="blog-item">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 550; --height: 660"
-                  >
-                    <img
-                      src="assets/images/loading.jpg"
-                      width="550"
-                      height="660"
-                      loading="lazy"
-                      alt="Creating is a privilege but it’s also a gift"
-                      class="img-cover"
-                    />
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li><a href="#" class="card-tag">loading</a></li>
-                      <li><a href="#" class="card-tag">loading</a></li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a href="#" class="card-title hover:underline"
-                        >Coming soon...</a
-                      >
-                    </h3>
-
-                    <p class="card-text">Coming soon...</p>
-                  </div>
-                </div>
-              </li>
-
-              <!-- ARTICLE 4 -->
-              <li class="blog-item hidden">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 550; --height: 660"
-                  >
-                    <img
-                      src="assets/images/loading.jpg"
-                      width="550"
-                      height="660"
-                      loading="lazy"
-                      alt="Creating is a privilege but it’s also a gift"
-                      class="img-cover"
-                    />
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li><a href="#" class="card-tag">loading</a></li>
-                      <li><a href="#" class="card-tag">loading</a></li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a href="#" class="card-title hover:underline"
-                        >Coming soon...</a
-                      >
-                    </h3>
-
-                    <p class="card-text">Coming soon...</p>
-                  </div>
-                </div>
-              </li>
-
-              <!-- ARTICLE 5 -->
-              <li class="blog-item hidden">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 550; --height: 660"
-                  >
-                    <img
-                      src="assets/images/loading.jpg"
-                      width="550"
-                      height="660"
-                      loading="lazy"
-                      alt="Creating is a privilege but it’s also a gift"
-                      class="img-cover"
-                    />
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li><a href="#" class="card-tag">loading</a></li>
-                      <li><a href="#" class="card-tag">loading</a></li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a href="#" class="card-title hover:underline"
-                        >Coming soon...</a
-                      >
-                    </h3>
-
-                    <p class="card-text">Coming soon...</p>
-                  </div>
-                </div>
-              </li>
-
-              <!-- ARTICLE 6 -->
-              <li class="blog-item hidden">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 550; --height: 660"
-                  >
-                    <img
-                      src="assets/images/loading.jpg"
-                      width="550"
-                      height="660"
-                      loading="lazy"
-                      alt="Creating is a privilege but it’s also a gift"
-                      class="img-cover"
-                    />
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li><a href="#" class="card-tag">loading</a></li>
-                      <li><a href="#" class="card-tag">loading</a></li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a href="#" class="card-title hover:underline"
-                        >Coming soon...</a
-                      >
-                    </h3>
-
-                    <p class="card-text">Coming soon...</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="blog-item hidden">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 550; --height: 660"
-                  >
-                    <img
-                      src="assets/images/loading.jpg"
-                      width="550"
-                      height="660"
-                      loading="lazy"
-                      alt="Creating is a privilege but it’s also a gift"
-                      class="img-cover"
-                    />
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li><a href="#" class="card-tag">loading</a></li>
-                      <li><a href="#" class="card-tag">loading</a></li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a href="#" class="card-title hover:underline"
-                        >Coming soon...</a
-                      >
-                    </h3>
-
-                    <p class="card-text">Coming soon...</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="blog-item hidden">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 550; --height: 660"
-                  >
-                    <img
-                      src="assets/images/loading.jpg"
-                      width="550"
-                      height="660"
-                      loading="lazy"
-                      alt="Creating is a privilege but it’s also a gift"
-                      class="img-cover"
-                    />
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li><a href="#" class="card-tag">loading</a></li>
-                      <li><a href="#" class="card-tag">loading</a></li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a href="#" class="card-title hover:underline"
-                        >Coming soon...</a
-                      >
-                    </h3>
-
-                    <p class="card-text">Coming soon...</p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="blog-item hidden">
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 550; --height: 660"
-                  >
-                    <img
-                      src="assets/images/loading.jpg"
-                      width="550"
-                      height="660"
-                      loading="lazy"
-                      alt="Creating is a privilege but it’s also a gift"
-                      class="img-cover"
-                    />
-                  </figure>
-
-                  <div class="card-content">
-                    <ul class="card-meta-list">
-                      <li><a href="#" class="card-tag">loading</a></li>
-                      <li><a href="#" class="card-tag">loading</a></li>
-                    </ul>
-
-                    <h3 class="h4">
-                      <a href="#" class="card-title hover:underline"
-                        >Coming soon...</a
-                      >
-                    </h3>
-
-                    <p class="card-text">Coming soon...</p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-
-            <button id="loadMoreBtn" class="btn">Load more</button>
-            <button id="resetSearchBtn" class="btn" style="display: none">
-              Go Back
+            <button class="play-btn">
+              <ion-icon name="play"></ion-icon>
             </button>
-          </div>
-        </section>
+          </figure>
 
-        <!-- 
-        - #RECOMMENDED POST
-      -->
-        <section class="section recommended" aria-label="recommended post">
-          <div class="container">
-            <p class="section-subtitle">
-              <strong class="strong">Recommended</strong>
+          <div class="about-content">
+
+            <h2 class="h2 about-title">About The Purposeful Generation</h2>
+
+            <p class="section-text">
+              <strong>The Purposeful Generation</strong> is a non-governmental organization dedicated to empowering secondary school students in their final academic year. Our primary objective is to help young minds realize the vast possibilities within themselves.
             </p>
 
-            <ul class="grid-list">
-              <li>
-                <div class="blog-card">
-                  <figure
-                    class="card-banner img-holder"
-                    style="--width: 300; --height: 360"
-                  >
-                    <img
-                      src="articles/1/image.jpg"
-                      width="300"
-                      height="360"
-                      loading="lazy"
-                      alt="Your Dreams Unlock the Path to Success"
-                      class="img-cover"
-                    />
+            <p class="section-text">
+              As students prepare to face the wider world, we bridge the gap between school and society. We educate them on future challenges, resilience, and how to discover the hidden potential in their immediate environment.
+            </p>
 
-                    <ul class="avatar-list absolute">
-                      <li class="avatar-item">
-                        <a
-                          href="about-author.html"
-                          class="avatar img-holder"
-                          style="--width: 100; --height: 100"
-                        >
-                          <img
-                            src="assets/images/Ruth Emmanuel.png"
-                            width="100"
-                            height="100"
-                            loading="lazy"
-                            alt="Author"
-                            class="img-cover"
-                          />
-                        </a>
-                      </li>
-                    </ul>
-                  </figure>
+            <h3 class="h3" style="font-size: 1.2rem; margin: 20px 0 15px; color: var(--onyx);">Core Focus Areas:</h3>
 
-                  <div class="card-content">
-                    <h3 class="h5">
-                      <a
-                        href="articles/1/your-dreams-unlock-the-path-to-success.html"
-                        class="card-title hover:underline"
-                      >
-                        Your Dreams Unlock the Path to Success
-                      </a>
-                    </h3>
-                  </div>
-                </div>
+            <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; list-style: none; padding: 0; margin-bottom: 30px;">
+              
+              <li style="display: flex; align-items: center; color: var(--sonic-silver);">
+                <ion-icon name="checkmark-circle" style="color: var(--orange-web); font-size: 1.2rem; margin-right: 10px; flex-shrink: 0;"></ion-icon>
+                Career Choices
               </li>
+
+              <li style="display: flex; align-items: center; color: var(--sonic-silver);">
+                <ion-icon name="checkmark-circle" style="color: var(--orange-web); font-size: 1.2rem; margin-right: 10px; flex-shrink: 0;"></ion-icon>
+                Digital Skills
+              </li>
+
+              <li style="display: flex; align-items: center; color: var(--sonic-silver);">
+                <ion-icon name="checkmark-circle" style="color: var(--orange-web); font-size: 1.2rem; margin-right: 10px; flex-shrink: 0;"></ion-icon>
+                Moral Values
+              </li>
+
+              <li style="display: flex; align-items: center; color: var(--sonic-silver);">
+                <ion-icon name="checkmark-circle" style="color: var(--orange-web); font-size: 1.2rem; margin-right: 10px; flex-shrink: 0;"></ion-icon>
+                Drug Abuse
+              </li>
+
+              <li style="display: flex; align-items: center; color: var(--sonic-silver);">
+                <ion-icon name="checkmark-circle" style="color: var(--orange-web); font-size: 1.2rem; margin-right: 10px; flex-shrink: 0;"></ion-icon>
+                Healthy Living
+              </li>
+
             </ul>
-          </div>
-        </section>
 
-        <!-- 
-        - #NEWSLETTER
-      -->
-
-        <section class="section newsletter">
-          <h2 class="h2 section-title">
-            Subscribe to <strong class="strong">new posts</strong>
-          </h2>
-
-          <form
-            action="https://formspree.io/f/meozlrbl"
-            method="POST"
-            class="newsletter-form"
-          >
-            <!-- Hidden field to identify newsletter submissions -->
-            <input type="hidden" name="form_type" value="newsletter" />
-
-            <input
-              type="email"
-              name="email"
-              placeholder="Your email address"
-              required
-              class="email-field"
-            />
-
-            <button type="submit" class="btn">Subscribe</button>
-          </form>
-        </section>
-      </article>
-    </main>
-
-    <!-- 
-    - #FOOTER
-  -->
-
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-top section">
-          <div class="footer-brand">
-            <a href="#" class="logo" onclick="scrollAndReload(); return false;">
-              <img
-                src="assets/images/logo.png"
-                width="129"
-                height="40"
-                alt="Blogy logo"
-              />
+            <a href="https://forms.gle/QSWAaJ5KsvE1VRS66" target="_blank" style="text-decoration: none;">
+              <button class="btn btn-primary">Join Us Today</button>
             </a>
 
-            <p class="footer-text">
-              Empowering readers to dream big, stay motivated, and turn
-              aspirations into success through inspiring stories, practical
-              tips, and growth insights.
-            </p>
           </div>
 
-          <ul class="footer-list">
-            <li>
-              <p class="h5">Social</p>
-            </li>
-
-            <li class="footer-list-item">
-              <ion-icon name="logo-facebook"></ion-icon>
-
-              <a href="" class="footer-link hover:underline">Facebook</a>
-            </li>
-
-            <li class="footer-list-item">
-              <ion-icon name="logo-twitter"></ion-icon>
-
-              <a
-                href="https://x.com/princess_ehmy"
-                class="footer-link hover:underline"
-                >Twitter</a
-              >
-            </li>
-
-            <li class="footer-list-item">
-              <ion-icon name="logo-whatsapp"></ion-icon>
-
-              <a
-                href="https://wa.me/2348103762754?text=Good%20day%2C%20my%20name%20is%20________.%20I%20came%20across%20your%20Blog."
-                class="footer-link hover:underline"
-                >Whatsapp</a
-              >
-            </li>
-
-            <li class="footer-list-item">
-              <ion-icon name="logo-linkedin"></ion-icon>
-
-              <a
-                href="https://linkedin.com/in/ruthem"
-                class="footer-link hover:underline"
-                >Linkedin</a
-              >
-            </li>
-            <li class="footer-list-item">
-              <ion-icon name="logo-instagram"></ion-icon>
-
-              <a
-                href="https://instagram.com/princess_ehmy"
-                class="footer-link hover:underline"
-                >Instagram</a
-              >
-            </li>
-          </ul>
-
-          <ul class="footer-list">
-            <li>
-              <p class="h5">About</p>
-            </li>
-
-            <li>
-              <a
-                href="https://brightsitedevapp.github.io/TPG/"
-                class="footer-link hover:underline"
-                >TPG</a
-              >
-            </li>
-
-            <li>
-              <a href="about-author.html" class="footer-link hover:underline"
-                >Author</a
-              >
-            </li>
-
-            <li>
-              <a href="contact.html" class="footer-link hover:underline"
-                >Contact</a
-              >
-            </li>
-
-            <li>
-              <a href="#" class="footer-link hover:underline">Sponsor</a>
-            </li>
-
-            <li>
-              <a href="privacy-policy.html" class="footer-link hover:underline"
-                >Privacy Policy</a
-              >
-            </li>
-          </ul>
         </div>
+      </section>
 
-        <div class="section footer-bottom">
-          <p class="copyright">
-            &copy; Inspiredbyemmy 2025. Published by
-            <a href="#" class="copyright-link hover:underline">josephtelecom</a
-            >.
+
+      <!--- #All Outreach Programs-->
+
+      <section class="departments">
+        <div class="container">
+
+          <img src="./assets/images/departmets-vector.svg" alt="Vector line art" class="vector-line">
+
+          <h2 class="h2 departments-title">Outreach Programs</h2>
+            <ul class="departments-list" id="outreach-container">
+        <div style="width:100%; text-align:center; padding: 20px;">
+           <p>Loading Outreach Programs...</p>
+          </div>
+            </ul>
+
+        <button onclick="window.location.href='outreach/'" class="btn btn-primary">
+            View All Programs
+          </button>
+
+        </div>
+      </section>
+
+        <!--- #Upcoming events -->
+
+      <section class="departments" id="upcoming-event">
+        <div class="container">
+
+          <img src="./assets/images/departmets-vector.svg" alt="Vector line art" class="vector-line">
+
+          <h2 class="h2 departments-title">Upcoming Events</h2>
+         <ul class="departments-list" id="upcoming-events-container">
+    <div style="width:100%; text-align:center; padding: 20px;">
+        <p>Loading events...</p>
+    </div>
+          </ul>
+
+        <button onclick="window.location.href='upcoming/'" class="btn btn-primary">
+           View All Upcoming events
+          </button> 
+
+        </div>
+      </section>
+
+      <!---#Facilitators-->
+
+      <section class="instructor" id="Facilitators" >
+        <div class="container">
+
+          <img src="./assets/images/instructor-vactor-1.svg" alt="Vector line art" class="vector-line">
+
+          <div class="title-wrapper">
+            <h2 class="h2 instructor-title">Facilitators</h2>
+
+            <button onclick="window.location.href='facilitators/'" class="btn btn-primary">View All Facilitators</button>
+          </div>
+
+         <ul class="instructor-list" id="facilitators-container">
+     <div style="width:100%; text-align:center; padding: 20px;">
+        <p>Loading facilitators...</p>
+    </div>
+</ul>
+          <img src="./assets/images/instructor-vactor-2.svg" alt="Vector line art" class="vector-line">
+
+        </div>
+      </section>
+
+
+      <!-- 
+        - #CTA
+     
+
+      <section class="cta">
+        <div class="container">
+
+          <div class="title-wrapper">
+
+            <h2 class="h2 cta-title">
+              <span>Do you want to be part of this movement?</span>
+
+              <img src="./assets/images/cta-vector.svg" alt="Vector arrow art" class="vector-line">
+            </h2>
+
+            <a href="https://forms.gle/QSWAaJ5KsvE1VRS66" target="_blank">
+  <button class="btn btn-primary">JOIN US NOW</button>
+</a>
+
+
+          </div>
+
+          <div class="cta-banner"></div>
+
+        </div>
+      </section>  -->
+
+    </article>
+  </main>
+
+
+  <!-- 
+    - #FOOTER
+  -->
+<footer class="footer" id="contact">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <img src="all-images/logo.png" alt="TPG logo" style="width: 140px;">
+          </a>
+
+          <p class="footer-text">
+            Shifting the minds of the young generation to see the possibilities in themselves.
           </p>
-        </div>
-      </div>
-    </footer>
 
-    <!-- 
+          <ul class="social-list">
+            <li>
+              <a href="https://www.facebook.com/profile.php?id=100094789808535" class="social-link" target="_blank">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/2348103762754" class="social-link" target="_blank">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/thepurposefulgeneration" class="social-link" target="_blank">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="footer-list">
+          <li><p class="footer-link-title">Explore</p></li>
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="outreach/" class="footer-link">Programs</a></li>
+          <li><a href="upcoming/" class="footer-link">Upcoming Events</a></li>
+          <li><a href="facilitators/" class="footer-link">Facilitators</a></li>
+          <li><a href="https://forms.gle/QSWAaJ5KsvE1VRS66" target="_blank" class="footer-link">Join Us</a></li>
+        </ul>
+
+        <ul class="footer-list">
+          <li><p class="footer-link-title">Contact</p></li>
+          
+          <li class="contact-item">
+            <ion-icon name="call-outline" style="color:var(--orange-web); margin-right:5px;"></ion-icon>
+            <a href="tel:+2348103762754" class="contact-link">+234 810 376 2754</a>
+          </li>
+          
+          <li class="contact-item">
+            <ion-icon name="mail-outline" style="color:var(--orange-web); margin-right:5px;"></ion-icon>
+            <a href="mailto:thepurposefulg@gmail.com" class="contact-link">thepurposefulg@gmail.com</a>
+          </li>
+          
+          <li class="contact-item">
+            <ion-icon name="location-outline" style="color:var(--orange-web); margin-right:5px;"></ion-icon>
+            <span class="contact-link">Kaduna, Nigeria</span>
+          </li>
+
+          <li style="margin-top: 20px;"><p class="footer-link-title" style="font-size: 16px;">Legal</p></li>
+          <li><a href="privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+        </ul>
+
+        <div class="footer-newsletter">
+          <h4 class="newsletter-title">Join Our Newsletter</h4>
+          <p class="newsletter-text">
+            Subscribe to get the latest updates, outreach news, and upcoming event alerts directly to your inbox.
+          </p>
+          
+          <form action="" class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+            <input type="email" name="email_address" placeholder="Enter your email" required class="newsletter-input">
+            <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+              <ion-icon name="paper-plane"></ion-icon>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+   <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">
+          &copy; 2025 <a href="index.html" style="color:white;">ThePurposefulGeneration</a>. All rights reserved.
+          
+          <a href="admin-login.html" style="margin-left: 15px; opacity: 0.2; color: white;" title="Staff Login">
+            <ion-icon name="lock-closed-outline" style="vertical-align: middle;"></ion-icon>
+          </a>
+          </p>
+      </div>
+    </div>
+
+  </footer>
+
+
+  <!-- 
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="arrow-up"></ion-icon>
+  </a>
+
+
+  <!-- 
     - custom js link
   -->
-    <script src="./assets/js/script.js" defer></script>
+  <script src="./assets/js/script.js"></script>
 
-    <!-- 
+  <!-- 
     - ionicon link
   -->
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
-      defer
-    ></script>
-  </body>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <div id="cookie-consent" style="
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: #fff9e6;
+  border: 1px solid hsl(43, 61%, 50%);
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 9999;
+  display: none;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+">
+  <p style="margin-bottom: 1rem; color: #444; font-size: 0.95rem;">
+    We use cookies to improve your experience on our site. By continuing, you agree to our 
+    <a href="privacy-policy.html" target="_blank" style="color: hsl(43, 61%, 40%); text-decoration: underline;">Privacy Policy</a>.
+  </p>
+  <button onclick="acceptCookies()" style="
+    background-color: hsl(43, 61%, 50%);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  ">
+    Accept Cookies
+  </button>
+</div>
+ 
+ <!-- 
+    - cookies JS
+  -->
+
+<script>
+  function acceptCookies() {
+    localStorage.setItem("cookiesAccepted", "true");
+    document.getElementById("cookie-consent").style.display = "none";
+  }
+
+  window.addEventListener("DOMContentLoaded", function () {
+    if (!localStorage.getItem("cookiesAccepted")) {
+      document.getElementById("cookie-consent").style.display = "block";
+    }
+  });
+</script>
+
+<script type="module">
+        import { db } from "./assets/js/firebase-init.js";
+        import { collection, getDocs, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+      
+        // --- HELPER: Skeleton HTML Strings ---
+        
+        // 1. Facilitator Skeleton (Circle Image)
+        const facilitatorSkeletonHTML = `
+            <li>
+                <div class="instructor-card" style="text-align: center;">
+                    <div class="skeleton skeleton-img-circle"></div>
+                    <div class="skeleton skeleton-title skeleton-center"></div>
+                    <div class="skeleton skeleton-text skeleton-center" style="width: 40%;"></div>
+                </div>
+            </li>
+        `.repeat(3); // Show 3 skeletons
+
+        // 2. Event/Outreach Skeleton (Rectangle Image)
+        const cardSkeletonHTML = `
+            <li>
+                <div class="departments-card">
+                    <div class="skeleton skeleton-img-rect"></div>
+                    <div class="skeleton skeleton-title"></div>
+                    <div class="skeleton skeleton-text" style="width: 40%; margin-bottom: 15px;"></div>
+                    <div class="skeleton skeleton-text"></div>
+                    <div class="skeleton skeleton-text"></div>
+                </div>
+            </li>
+        `.repeat(3); // Show 3 skeletons
+
+
+        // --- FUNCTIONS ---
+
+        // 1. FETCH FACILITATORS
+        async function loadFacilitators() {
+            const container = document.getElementById('facilitators-container');
+            
+            // SHOW SKELETON
+            container.innerHTML = facilitatorSkeletonHTML;
+
+            const q = query(collection(db, "facilitators"), orderBy("createdAt", "desc"), limit(3));
+            
+            try {
+                const querySnapshot = await getDocs(q);
+                if (querySnapshot.empty) {
+                    container.innerHTML = "<p class='section-text' style='text-align:center; width:100%;'>No facilitators added yet.</p>";
+                    return;
+                }
+      
+                let html = "";
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    html += `
+                      <li>
+                        <div class="instructor-card" style="text-align: center;">
+                          <figure class="card-banner" style="margin-bottom: 20px;">
+                            <img src="${data.imageUrl}" alt="${data.name}" 
+                                 style="width: 180px; height: 180px; object-fit: cover; border-radius: 50%; margin: 0 auto; display: block; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                          </figure>
+                          <h3 class="card-title">${data.name}</h3>
+                          <p class="card-subtitle">${data.role}</p>
+                        </div>
+                      </li>
+                    `;
+                });
+                container.innerHTML = html;
+            } catch (error) { 
+                console.error(error);
+                container.innerHTML = "<p style='color:red; text-align:center;'>Error loading data.</p>";
+            }
+        }
+      
+        // 2. FETCH UPCOMING EVENTS
+        async function loadUpcomingEvents() {
+            const container = document.getElementById('upcoming-events-container');
+            
+            // SHOW SKELETON
+            container.innerHTML = cardSkeletonHTML;
+
+            const q = query(collection(db, "upcoming_events"), orderBy("date", "asc"), limit(3)); 
+      
+            try {
+                const querySnapshot = await getDocs(q);
+                if (querySnapshot.empty) {
+                    container.innerHTML = `<li style="grid-column: 1/-1; text-align: center;">
+                        <div class="departments-card" style="padding:30px;">
+                          <h3 class="h3 card-title">No Upcoming Events</h3>
+                          <p class="card-text">Check back soon!</p>
+                        </div>
+                      </li>`;
+                    return;
+                }
+      
+                let html = "";
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const dateString = new Date(data.date).toDateString();
+                    const detailLink = `event/?id=${doc.id}&collection=upcoming_events`;
+
+                    html += `
+                      <li>
+                        <div class="departments-card">
+                          <a href="${detailLink}" class="card-banner">
+                            <figure><img src="${data.imageUrl}" alt="${data.title}" style="height: 200px; width: 100%; object-fit: cover;"></figure>
+                          </a>
+                          
+                          <a href="${detailLink}">
+                              <h3 class="h3 card-title">${data.title}</h3>
+                          </a>
+                          
+                          <p class="card-subtitle" style="color: var(--orange-web); font-weight:bold; margin-bottom: 10px;">📅 ${dateString}</p>
+                          <p class="card-text">${data.description.substring(0, 80)}...</p>
+                          
+                          <a href="${detailLink}" class="card-link">
+                            <span>View Details</span>
+                            <ion-icon name="arrow-forward"></ion-icon>
+                          </a>
+                        </div>
+                      </li>
+                    `;
+                });
+                container.innerHTML = html;
+            } catch (error) { console.error(error); }
+        }
+      
+        // 3. FETCH OUTREACH PROGRAMS
+        async function loadOutreach() {
+            const container = document.getElementById('outreach-container');
+            
+            // SHOW SKELETON
+            container.innerHTML = cardSkeletonHTML;
+
+            const q = query(collection(db, "outreach_programs"), orderBy("createdAt", "desc"), limit(3)); 
+      
+            try {
+                const querySnapshot = await getDocs(q);
+                if (querySnapshot.empty) {
+                    container.innerHTML = "<p>No programs found.</p>";
+                    return;
+                }
+      
+                let html = "";
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    const detailLink = `event/?id=${doc.id}&collection=outreach_programs`;
+
+                    html += `
+                      <li>
+                        <div class="departments-card">
+                          <a href="${detailLink}" class="card-banner">
+                            <figure><img src="${data.imageUrl}" alt="${data.title}" style="height: 250px; width: 100%; object-fit: cover;"></figure>
+                          </a>
+                          
+                          <a href="${detailLink}">
+                             <h3 class="h3 card-title">${data.title}</h3>
+                          </a>
+                          
+                          <p class="card-subtitle" style="margin-bottom:10px;"><strong>Date:</strong> ${data.date}</p>
+                          
+                          <p class="card-text">
+                              ${data.shortDesc.substring(0, 100)}...
+                          </p>
+
+                          <a href="${detailLink}" class="card-link" style="margin-top: 15px;">
+                            <span>Read Full Story</span>
+                            <ion-icon name="arrow-forward"></ion-icon>
+                          </a>
+                        </div>
+                      </li>
+                    `;
+                });
+                container.innerHTML = html;
+            } catch (error) { console.error(error); }
+        }
+      
+        // Run functions when page loads
+        window.addEventListener('DOMContentLoaded', () => {
+            loadFacilitators();
+            loadUpcomingEvents();
+            loadOutreach();
+        });
+    </script>
+
+</body>
+
 </html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Details | The Purposeful Generation</title>
+  
+  <link rel="shortcut icon" href="../all-images/logo.png" type="image/png">
+  
+  <link rel="stylesheet" href="../assets/css/style.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Poppins:wght@600;700&family=Rubik:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* * EVENT DETAIL HEADER STYLES */
+    .page-header { background: white; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; }
+    .header-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
+    .header-logo img { width: 160px; height: auto; }
+    
+    .blog-header { width: 100%; height: 60vh; min-height: 400px; background-color: #eee; background-size: cover; background-position: center; position: relative; }
+    .blog-header::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.8)); }
+    .blog-title-wrapper { position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 900px; text-align: center; color: white; z-index: 2; }
+    .blog-date { background: hsl(43, 61%, 50%); color: white; padding: 6px 18px; border-radius: 30px; font-size: 1rem; display: inline-block; margin-bottom: 20px; font-family: 'Rubik', sans-serif; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+    .blog-title { font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: 700; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
+    .blog-content { max-width: 800px; margin: 0 auto; padding: 80px 20px 40px; font-family: 'Rubik', sans-serif; font-size: 1.15rem; line-height: 1.9; color: hsl(240, 8%, 20%); }
+
+    /* * GALLERY & GRID STYLES */
+    .gallery-container {
+        max-width: 1000px;
+        margin: 0 auto 80px; 
+        padding: 0 20px;
+    }
+    .gallery-title {
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        color: hsl(240, 8%, 18%);
+        margin-bottom: 30px;
+        font-size: 2rem;
+        position: relative;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .gallery-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: hsl(43, 61%, 50%);
+        margin: 10px auto 0;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 15px;
+    }
+    
+    .gallery-grid img {
+        width: 100%;
+        height: 250px; 
+        object-fit: cover;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .gallery-grid img:hover {
+        transform: scale(1.02);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    /* Lightbox */
+    .lightbox {
+        display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(0, 0, 0, 0.9); align-items: center; justify-content: center; z-index: 9999;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img { max-width: 90%; max-height: 90vh; border-radius: 5px; box-shadow: 0 0 20px rgba(255, 255, 255, 0.2); }
+    .lightbox-close { position: absolute; top: 20px; right: 30px; font-size: 3rem; color: white; cursor: pointer; }
+
+    /* Mobile Responsive */
+    @media (max-width: 768px) {
+        .header-logo img { width: 130px; }
+        .blog-header { height: 50vh; min-height: 300px; }
+        .blog-title { font-size: 1.8rem; }
+        .blog-content { padding: 40px 20px; font-size: 1rem; }
+        .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } 
+        .gallery-grid img { height: 150px; } 
+    }
+
+    .loading-screen { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 1.2rem; color: #666; gap: 15px; }
+  </style>
+</head>
+
+<body>
+
+  <header class="page-header">
+    <div class="header-container">
+      <a href="../" class="header-logo"><img src="../all-images/logo2.png" alt="TPG logo"></a>
+      <button onclick="history.back()" class="btn btn-primary" style="padding: 10px 25px; border-radius: 50px; font-size: 0.9rem;">
+        <ion-icon name="arrow-back-outline" style="display:inline-block; vertical-align:middle; margin-right:5px;"></ion-icon> Back
+      </button>
+    </div>
+  </header>
+
+  <main id="main-content">
+      <div class="loading-screen">
+          <div class="spinner" style="border: 4px solid #f3f3f3; border-top: 4px solid hsl(43, 61%, 50%); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite;"></div>
+          <span>Loading details...</span>
+      </div>
+      <style>@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }</style>
+  </main>
+
+  <div class="lightbox" id="lightbox">
+      <span class="lightbox-close" id="closeBtn">&times;</span>
+      <img id="lightbox-img" src="" alt="Full Image">
+  </div>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <div class="container"><p class="copyright">&copy; 2025 <a href="../">ThePurposefulGeneration</a>. All right reserved</p></div>
+    </div>
+  </footer>
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script type="module">
+    // Path updated
+    import { db } from "../assets/js/firebase-init.js";
+    import { doc, getDoc } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+
+    async function loadDetails() {
+        const params = new URLSearchParams(window.location.search);
+        const docId = params.get('id');
+        const collectionName = params.get('collection');
+        const main = document.getElementById('main-content');
+
+        if (!docId || !collectionName) {
+            main.innerHTML = "<div style='text-align:center; padding:100px;'><h2>Invalid Link</h2><button onclick='history.back()' class='btn btn-primary'>Go Back</button></div>";
+            return;
+        }
+
+        try {
+            const docRef = doc(db, collectionName, docId);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                const data = docSnap.data();
+                const content = data.fullDesc ? data.fullDesc.replace(/\n/g, '<br>') : data.description.replace(/\n/g, '<br>');
+                
+                // --- FIX APPLIED HERE ---
+                // We now use data.date directly as text. 
+                // This prevents the computer from messing up dates like "May 27 & 28".
+                let displayDate = data.date;
+                
+                document.title = `${data.title} - TPG`; 
+                
+                // Build Gallery HTML if images exist
+                let galleryHtml = '';
+                if (data.galleryImages && data.galleryImages.length > 0) {
+                    let imagesHtml = data.galleryImages.map(imgUrl => 
+                        `<img src="${imgUrl}" alt="Gallery Image" class="gallery-item">`
+                    ).join('');
+
+                    galleryHtml = `
+                        <div class="gallery-container">
+                            <h2 class="gallery-title">Event Gallery</h2>
+                            <div class="gallery-grid">
+                                ${imagesHtml}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                main.innerHTML = `
+                    <div class="blog-header" style="background-image: url('${data.imageUrl}');">
+                        <div class="blog-title-wrapper">
+                            <span class="blog-date">📅 ${displayDate}</span>
+                            <h1 class="blog-title" style="color: white;">${data.title}</h1>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-content">${content}</div>
+
+                    ${galleryHtml}
+                `;
+
+                // Initialize Lightbox Logic
+                initLightbox();
+
+            } else {
+                main.innerHTML = "<div style='text-align:center; padding:100px;'><h2>Not Found</h2></div>";
+            }
+        } catch (error) {
+            console.error("Error:", error);
+            main.innerHTML = "<div style='text-align:center; padding:100px;'><h2>Error loading page</h2></div>";
+        }
+    }
+
+    function initLightbox() {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const closeBtn = document.getElementById("closeBtn");
+        const galleryItems = document.querySelectorAll(".gallery-item");
+
+        galleryItems.forEach(img => {
+            img.addEventListener("click", () => {
+                lightboxImg.src = img.src;
+                lightbox.classList.add("active");
+            });
+        });
+
+        closeBtn.addEventListener("click", () => lightbox.classList.remove("active"));
+        lightbox.addEventListener("click", (e) => {
+            if (e.target !== lightboxImg) lightbox.classList.remove("active");
+        });
+    }
+
+    window.addEventListener('DOMContentLoaded', loadDetails);
+  </script>
+
+</body>
+</html>

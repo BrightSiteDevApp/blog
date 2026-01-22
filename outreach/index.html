@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Outreach Programs - The Purposeful Generation</title>
+
+    <link rel="shortcut icon" href="../all-images/logo.png" type="image/png" />
+
+    <meta
+      name="description"
+      content="Explore all outreach programs by The Purposeful Generation. Inspiring youth through education, digital skills, and moral values."
+    />
+    <meta
+      name="keywords"
+      content="Outreach, NGO, Youth Empowerment, Digital Skills, Nigeria, Education, The Purposeful Generation"
+    />
+    <meta name="author" content="The Purposeful Generation" />
+
+    <link rel="stylesheet" href="../assets/css/style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Poppins:wght@600;700&family=Rubik:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      @keyframes skeleton-loading {
+        0% { background-color: #e0e0e0; }
+        50% { background-color: #f0f0f0; }
+        100% { background-color: #e0e0e0; }
+      }
+      .skeleton {
+        animation: skeleton-loading 1.5s infinite ease-in-out;
+        border-radius: 4px;
+        background-color: #e0e0e0;
+      }
+      .skeleton-img-rect { width: 100%; height: 300px; margin-bottom: 15px; border-radius: 6px; }
+      .skeleton-title { width: 70%; height: 28px; margin-bottom: 15px; }
+      .skeleton-text { width: 90%; height: 16px; margin-bottom: 8px; }
+      .skeleton-btn { width: 120px; height: 35px; margin-top: 20px; border-radius: 50px; }
+    </style>
+
+  </head>
+
+  <body>
+    <header class="header" data-header>
+      <div class="container">
+
+        <a href="../" class="logo">
+          <img src="../all-images/logo2.png" alt="TPG logo">
+        </a>
+
+        <button class="nav-toggle-btn" aria-label="Toggle menu" data-nav-toggler>
+          <span class="line line-1"></span>
+          <span class="line line-2"></span>
+          <span class="line line-3"></span>
+        </button>
+
+        <nav class="navbar" data-navbar>
+          <ul class="navbar-list">
+            <li><a href="../" class="navbar-link">Home</a></li>
+            <li><a href="../outreach/" class="navbar-link active">Programs</a></li> 
+            <li><a href="../upcoming/" class="navbar-link">Upcoming Events</a></li>
+            <li><a href="../facilitators/" class="navbar-link">Facilitators</a></li>
+            <li><a href="https://forms.gle/QSWAaJ5KsvE1VRS66" target="_blank" class="navbar-link">Join Us</a></li>
+            
+            <li class="mobile-sponsor">
+               <a href="https://wa.me/2348103762754" target="_blank" class="btn btn-sponsor">
+                Sponsor <ion-icon name="heart"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <a href="https://wa.me/2348103762754" target="_blank" class="btn btn-sponsor desktop-sponsor">
+          Sponsor <ion-icon name="heart"></ion-icon>
+        </a>
+
+      </div>
+    </header>
+
+    <section class="departments" style="padding-top: 200px">
+      <div class="container">
+        <img
+          src="../assets/images/departmets-vector.svg"
+          alt="Vector line art"
+          class="vector-line"
+        />
+
+        <h2 class="h2 departments-title">All Outreach Programs</h2>
+
+        <ul class="departments-list" id="all-outreach-container">
+            </ul>
+
+        <button onclick="history.back()" class="btn btn-primary" style="margin-top: 40px;">
+          Go Back
+        </button>
+      </div>
+    </section>
+
+    <footer class="footer" id="contact">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+          <a href="../" class="logo">
+            <img src="../all-images/logo.png" alt="TPG logo" style="width: 140px;">
+          </a>
+
+          <p class="footer-text">
+            Shifting the minds of the young generation to see the possibilities in themselves.
+          </p>
+
+          <ul class="social-list">
+            <li>
+              <a href="https://www.facebook.com/profile.php?id=100094789808535" class="social-link" target="_blank">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/2348103762754" class="social-link" target="_blank">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/thepurposefulgeneration" class="social-link" target="_blank">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <ul class="footer-list">
+          <li><p class="footer-link-title">Explore</p></li>
+          <li><a href="../" class="footer-link">Home</a></li>
+          <li><a href="../outreach/" class="footer-link">Programs</a></li>
+          <li><a href="../upcoming/" class="footer-link">Upcoming Events</a></li>
+          <li><a href="../facilitators/" class="footer-link">Facilitators</a></li>
+          <li><a href="https://forms.gle/QSWAaJ5KsvE1VRS66" target="_blank" class="footer-link">Join Us</a></li>
+        </ul>
+
+        <ul class="footer-list">
+          <li><p class="footer-link-title">Contact</p></li>
+          
+          <li class="contact-item">
+            <ion-icon name="call-outline" style="color:var(--orange-web); margin-right:5px;"></ion-icon>
+            <a href="tel:+2348103762754" class="contact-link">+234 810 376 2754</a>
+          </li>
+          
+          <li class="contact-item">
+            <ion-icon name="mail-outline" style="color:var(--orange-web); margin-right:5px;"></ion-icon>
+            <a href="mailto:thepurposefulg@gmail.com" class="contact-link">thepurposefulg@gmail.com</a>
+          </li>
+          
+          <li class="contact-item">
+            <ion-icon name="location-outline" style="color:var(--orange-web); margin-right:5px;"></ion-icon>
+            <span class="contact-link">Kaduna, Nigeria</span>
+          </li>
+
+          <li style="margin-top: 20px;"><p class="footer-link-title" style="font-size: 16px;">Legal</p></li>
+          <li><a href="../privacy-policy.html" class="footer-link">Privacy Policy</a></li>
+        </ul>
+
+        <div class="footer-newsletter">
+          <h4 class="newsletter-title">Join Our Newsletter</h4>
+          <p class="newsletter-text">
+            Subscribe to get the latest updates, outreach news, and upcoming event alerts directly to your inbox.
+          </p>
+          
+          <form action="" class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing!');">
+            <input type="email" name="email_address" placeholder="Enter your email" required class="newsletter-input">
+            <button type="submit" class="newsletter-btn" aria-label="Subscribe">
+              <ion-icon name="paper-plane"></ion-icon>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+   <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright">
+          &copy; 2025 <a href="../" style="color:white;">ThePurposefulGeneration</a>. All rights reserved.
+          
+          <a href="../admin-login.html" style="margin-left: 15px; opacity: 0.2; color: white;" title="Staff Login">
+            <ion-icon name="lock-closed-outline" style="vertical-align: middle;"></ion-icon>
+          </a>
+          </p>
+      </div>
+    </div>
+
+  </footer>
+
+    <script src="../assets/js/script.js"></script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+    <div
+      id="cookie-consent"
+      style="
+        position: fixed; bottom: 20px; left: 20px; right: 20px;
+        background: #fff9e6; border: 1px solid hsl(43, 61%, 50%);
+        padding: 1rem 1.5rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 9999; display: none; font-family: 'Poppins', sans-serif;
+        border-radius: 8px; max-width: 600px; margin: auto; text-align: center;
+      "
+    >
+      <p style="margin-bottom: 1rem; color: #444; font-size: 0.95rem">
+        We use cookies to improve your experience. By continuing, you agree to our
+        <a href="../privacy-policy.html" target="_blank" style="color: hsl(43, 61%, 40%); text-decoration: underline">Privacy Policy</a>.
+      </p>
+      <button
+        onclick="acceptCookies()"
+        style="
+          background-color: hsl(43, 61%, 50%); border: none;
+          padding: 0.6rem 1.2rem; color: white; font-weight: bold;
+          border-radius: 6px; cursor: pointer; font-size: 0.9rem;
+        "
+      >
+        Accept Cookies
+      </button>
+    </div>
+
+    <script>
+      function acceptCookies() {
+        localStorage.setItem("cookiesAccepted", "true");
+        document.getElementById("cookie-consent").style.display = "none";
+      }
+      window.addEventListener("DOMContentLoaded", function () {
+        if (!localStorage.getItem("cookiesAccepted")) {
+          document.getElementById("cookie-consent").style.display = "block";
+        }
+      });
+    </script>
+
+    <script type="module">
+        import { db } from "../assets/js/firebase-init.js";
+        import { collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+      
+        // --- SKELETON HTML ---
+        // Creates a fake card with gray pulsing boxes
+        const outreachSkeleton = `
+          <li>
+            <div class="departments-card">
+              <div class="skeleton skeleton-img-rect"></div>
+              <div class="skeleton skeleton-title"></div>
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-text"></div>
+              <div class="skeleton skeleton-btn"></div>
+            </div>
+          </li>
+        `.repeat(6); // Show 6 fake cards
+
+        async function loadAllOutreach() {
+            const container = document.getElementById('all-outreach-container');
+            
+            // 1. SHOW SKELETON IMMEDIATELY
+            container.innerHTML = outreachSkeleton;
+
+            const q = query(collection(db, "outreach_programs"), orderBy("createdAt", "desc")); 
+      
+            try {
+                const querySnapshot = await getDocs(q);
+                
+                if (querySnapshot.empty) {
+                    container.innerHTML = "<p style='text-align:center;'>No outreach programs found yet.</p>";
+                    return;
+                }
+      
+                let html = "";
+                querySnapshot.forEach((doc) => {
+                    const data = doc.data();
+                    
+                    // CLEAN URL LINK (Points to ../event/)
+                    const detailLink = `../event/?id=${doc.id}&collection=outreach_programs`;
+
+                    html += `
+                      <li>
+                        <div class="departments-card">
+                          <a href="${detailLink}" class="card-banner">
+                            <figure>
+                              <img src="${data.imageUrl}" alt="${data.title}" style="height: 300px; width: 100%; object-fit: cover;">
+                            </figure>
+                          </a>
+                          
+                          <a href="${detailLink}">
+                             <h3 class="h3 card-title">${data.title}</h3>
+                          </a>
+
+                          <p style="color:hsl(43, 61%, 50%); margin-bottom:10px; font-weight:bold;">${data.date}</p>
+      
+                          <div class="card-text">
+                            <p>${data.shortDesc}</p>
+                          </div>
+                          
+                          <a href="${detailLink}" class="card-link" style="margin-top: 15px;">
+                             <span>Read Full Story</span>
+                             <ion-icon name="arrow-forward"></ion-icon>
+                          </a>
+                        </div>
+                      </li>
+                    `;
+                });
+                
+                // 2. REPLACE SKELETON WITH REAL DATA
+                container.innerHTML = html;
+      
+            } catch (error) {
+                console.error("Error loading programs:", error);
+                container.innerHTML = "<p style='text-align:center; color:red;'>Error loading content.</p>";
+            }
+        }
+      
+        window.addEventListener('DOMContentLoaded', loadAllOutreach);
+      </script>
+
+  </body>
+</html>
