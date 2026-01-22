@@ -1,230 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy - The Purposeful Generation</title>
-  
-  <link rel="shortcut icon" href="all-images/logo.png" type="image/png" />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
-  
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy | Inspired by Emmy</title>
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="assets/images/head-logo.png"
+      type="image/png"
+      sizes="192x192"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+      body {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fdfdfd;
+        color: #333;
+        line-height: 1.6;
+      }
 
-  <style>
-    :root {
-      --orange-web: hsl(43, 61%, 50%);
-      --onyx: hsl(0, 0%, 23%);
-      --light-gray: #f9f9f9;
-      --white: #ffffff;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-      --ff-poppins: 'Poppins', sans-serif;
-      --ff-rubik: 'Rubik', sans-serif;
-    }
+      .container {
+        max-width: 800px;
+        margin: 60px auto;
+        padding: 20px 30px;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #2c3e50;
+        text-align: center;
+      }
 
-    body {
-      font-family: var(--ff-rubik);
-      background-color: var(--light-gray);
-      color: #555;
-      line-height: 1.8;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+      h2 {
+        font-size: 1.2rem;
+        margin-top: 1.5rem;
+        color: #2c3e50;
+      }
 
-    /* Header with Logo */
-    .policy-header {
-      background: var(--white);
-      padding: 15px 0;
-      text-align: center;
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-    }
+      p {
+        margin-bottom: 1rem;
+      }
 
-    .logo-img {
-      width: 140px;
-      height: auto;
-    }
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
 
-    /* Main Container */
-    .main-content {
-      flex: 1;
-      padding: 60px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-    }
+      a:hover {
+        text-decoration: underline;
+      }
 
-    .policy-card {
-      background: var(--white);
-      max-width: 800px;
-      width: 100%;
-      padding: 50px;
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
+      .back-link {
+        display: block;
+        margin-top: 2rem;
+        text-align: center;
+      }
 
-    /* Orange Top Border */
-    .policy-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 6px;
-      background: var(--orange-web);
-    }
+      @media (max-width: 600px) {
+        .container {
+          padding: 15px 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Privacy Policy</h1>
 
-    /* Typography */
-    h1 {
-      font-family: var(--ff-poppins);
-      color: var(--onyx);
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+      <p>
+        At <strong>Inspired by Emmy</strong>, your privacy is important to us.
+        This Privacy Policy outlines how we collect, use, and protect your
+        personal information.
+      </p>
 
-    .last-updated {
-      font-size: 0.9rem;
-      color: #999;
-      margin-bottom: 40px;
-      display: block;
-      border-bottom: 1px solid #eee;
-      padding-bottom: 20px;
-    }
-
-    h2 {
-      font-family: var(--ff-poppins);
-      color: var(--onyx);
-      font-size: 1.3rem;
-      margin-top: 30px;
-      margin-bottom: 15px;
-    }
-
-    p { margin-bottom: 15px; }
-
-    ul {
-      list-style: none;
-      margin-bottom: 20px;
-      background: #fffdf5; /* Very light orange tint */
-      padding: 20px;
-      border-radius: 10px;
-      border-left: 4px solid var(--orange-web);
-    }
-
-    li {
-      margin-bottom: 10px;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-
-    li ion-icon {
-      color: var(--orange-web);
-      font-size: 1.2rem;
-      margin-top: 4px;
-    }
-
-    /* Button */
-    .btn-container {
-      margin-top: 50px;
-      text-align: center;
-      border-top: 1px solid #eee;
-      padding-top: 30px;
-    }
-
-    .btn-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background-color: var(--onyx);
-      color: white;
-      padding: 12px 30px;
-      border-radius: 50px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: 0.3s ease;
-      font-family: var(--ff-poppins);
-    }
-
-    .btn-back:hover {
-      background-color: var(--orange-web);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(255, 165, 0, 0.3);
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 600px) {
-      .policy-card { padding: 30px 20px; }
-      h1 { font-size: 1.8rem; flex-direction: column; align-items: flex-start; }
-      .main-content { padding: 30px 15px; }
-    }
-  </style>
-</head>
-<body>
-
-  <header class="policy-header">
-    <a href="index.html">
-      <img src="all-images/logo2.png" alt="TPG Logo" class="logo-img">
-    </a>
-  </header>
-
-  <main class="main-content">
-    <div class="policy-card">
-      
-      <h1>
-        <ion-icon name="shield-checkmark-outline" style="color: var(--orange-web);"></ion-icon>
-        Privacy Policy
-      </h1>
-      <span class="last-updated">Last Updated: January 20, 2026</span>
-
-      <p>At <strong>The Purposeful Generation (TPG)</strong>, your privacy is critically important to us. This Privacy Policy outlines the types of personal information we collect, how we use it, and the steps we take to safeguard your data.</p>
-
-      <h2>1. Information We Collect</h2>
-      <p>We may collect personal data to provide better services and communicate effectively. This includes:</p>
-      <ul>
-        <li><ion-icon name="checkmark-circle"></ion-icon> <strong>Personal Identity:</strong> Name, Email address, Phone number.</li>
-        <li><ion-icon name="checkmark-circle"></ion-icon> <strong>Technical Data:</strong> Browser type, Device information, and IP address.</li>
-        <li><ion-icon name="checkmark-circle"></ion-icon> <strong>Usage Data:</strong> How you interact with our website and programs.</li>
-      </ul>
+      <h2>1. What Information We Collect</h2>
+      <p>
+        We may collect personal data such as your name, email address, and
+        device information when you fill out forms or interact with our website.
+      </p>
 
       <h2>2. How We Use Your Information</h2>
-      <p>Your data is used strictly to enhance your experience with TPG. We use it to:</p>
-      <p>Improve our website functionality, send you important updates regarding upcoming events or volunteer opportunities, and analyze site traffic to understand our audience better.</p>
+      <ul>
+        <li>To improve your user experience</li>
+        <li>To communicate updates, newsletters, or opportunities</li>
+        <li>To analyze traffic using cookies or analytics tools</li>
+      </ul>
 
-      <h2>3. Cookies Policy</h2>
-      <p>This website uses cookies small text files stored on your device  to enhance your browsing experience. These cookies help us remember your preferences and understand how you use our site. By continuing to browse, you consent to our use of cookies.</p>
+      <h2>3. Cookies</h2>
+      <p>
+        This website uses cookies to enhance your browsing experience. By
+        continuing to use our site, you consent to our cookie usage.
+      </p>
 
       <h2>4. Third-Party Services</h2>
-      <p>We sometimes use trusted third-party tools (such as Google Forms for registration or WhatsApp for communication). While we choose these partners carefully, we encourage you to review their respective privacy policies.</p>
+      <p>
+        We may use trusted third-party services such as Google Forms or WhatsApp
+        to collect or process data. These services follow safe data practices.
+      </p>
 
       <h2>5. Data Security</h2>
-      <p>We implement appropriate technical and organizational security measures to protect your personal data from unauthorized access, loss, or misuse.</p>
+      <p>
+        We implement reasonable technical and organizational safeguards to
+        protect your data from unauthorized access or misuse.
+      </p>
 
       <h2>6. Your Consent</h2>
-      <p>By using our website, you hereby consent to our Privacy Policy and agree to its terms.</p>
+      <p>
+        By using our website, you agree to the terms of this Privacy Policy.
+      </p>
 
-      <div class="btn-container">
-        <a class="btn-back" href="/">
-          <ion-icon name="arrow-back-outline"></ion-icon>
-          Back to Home
-        </a>
+      <h2>7. Contact Us</h2>
+      <p>
+        If you have any questions regarding this Privacy Policy, please
+        <a href="contact.html">reach out via our Contact Page</a>.
+      </p>
+
+      <div class="back-link">
+        <a href="index.html">&larr; Back to Home</a>
       </div>
-
     </div>
-  </main>
-
-  <footer style="text-align: center; padding: 20px; color: #999; font-size: 0.85rem;">
-    &copy; 2026 The Purposeful Generation. All rights reserved.
-  </footer>
-
-</body>
+  </body>
 </html>
